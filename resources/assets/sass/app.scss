@@ -1,0 +1,25 @@
+// Fonts
+@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
+// Variables
+@import "variables";
+// Bootstrap
+@import "~bootstrap-sass/assets/stylesheets/bootstrap";
+
+// 类
+.shade-1 {
+  box-shadow: 0 1px 2px 0 #E2E2E2;
+}
+
+section, article {
+  background: white;
+}
+
+
+#app.index-page {
+  // 文章预览部分
+  article {
+    overflow: hidden;
+    padding: 10px;
+    margin-bottom: 25px;
+  }
+}

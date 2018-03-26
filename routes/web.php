@@ -19,3 +19,11 @@ $this->get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm
 $this->post('password/reset', 'Auth\ResetPasswordController@reset');
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+// 后台
+Route::prefix('admin')->namespace('Admins')->group(function (){
+    $this->resource('category','CategoryController')->names('categories');//分类
+    $this->resource('article','ArticleController')->names('articles');//文章
+    $this->get('/','AdminController@index')->name('admins.index');
+});

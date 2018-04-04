@@ -2,9 +2,13 @@
     <section class="col-md-12">
         <h4>热门标签</h4>
         <ul class="list-inline">
+
+            @foreach(\App\Models\Tag::select('name','count')->get() as $tag)
             <li class="">
-                <a href="">php <small>(14)</small></a>
+                <a href="">{{ $tag->name }} <small>({{ $tag->count }})</small></a>
             </li>
+            @endforeach
+
         </ul>
     </section>
 </aside>

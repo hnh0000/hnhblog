@@ -20,9 +20,11 @@
         <div class="collapse navbar-collapse" id="app-navbar-collapse">
             <!-- Left Side Of Navbar -->
             <ul class="nav navbar-nav">
-                <li><a href="">前端</a></li>
-                <li><a href="">PHP</a></li>
-                <li><a href="">留言</a></li>
+
+                @foreach(\App\Models\Category::pluck('name') as $category)
+                    <li><a href="">{{ $category }}</a></li>
+                @endforeach
+
                 <li><a href="">短语</a></li>
             </ul>
 
@@ -42,7 +44,7 @@
                                 </li>
                                 <li>
                                     <a href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
+                                           onclick="event.preventDefault();
                                                          document.getElementById('logout-form').submit();">
                                         Logout
                                     </a>

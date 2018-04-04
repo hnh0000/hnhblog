@@ -15,9 +15,20 @@ class CreateTagsTable extends Migration
     {
         Schema::create('tags', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name','30')->commit('标签名称');
+            $table->string('name','30')->comment('标签名称');
+            $table->integer('count')->default('0')->comment('文章数量');
             $table->timestamps();
         });
+
+        $data = [
+            ['name' => 'laravel'],
+            ['name' => 'php'],
+            ['name' => 'js'],
+            ['name' => '转载'],
+            ['name' => '生活'],
+        ];
+
+        \App\Models\Tag::insert($data);
     }
 
     /**

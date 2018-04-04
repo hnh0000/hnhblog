@@ -15,9 +15,19 @@ class CreateCategoriesTable extends Migration
     {
         Schema::create('categories', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name','30')->commit('分类名称');
+            $table->string('name','30')->comment('分类名称');
             $table->timestamps();
         });
+
+        // 初始化分类标签
+        $data = [
+            ['name' => 'PHP'],
+            ['name' => 'APP'],
+            ['name' => '其他技能'],
+            ['name' => '生活日志'],
+        ];
+
+        \App\Models\Category::insert($data);
     }
 
     /**

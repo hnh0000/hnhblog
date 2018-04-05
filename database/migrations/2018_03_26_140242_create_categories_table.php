@@ -22,6 +22,7 @@ class CreateCategoriesTable extends Migration
         // 初始化分类标签
         $data = [
             ['name' => 'PHP'],
+            ['name' => '前端'],
             ['name' => 'APP'],
             ['name' => '其他技能'],
             ['name' => '生活日志'],

@@ -1,8 +1,6 @@
 <?php
 
 
-Route::get('/', 'Entries\EntryController@index')->name('entry.index');
-
 // Authentication Routes...
 $this->get('login', 'Auth\LoginController@showLoginForm')->name('login');
 $this->post('login', 'Auth\LoginController@login');
@@ -19,3 +17,11 @@ $this->get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm
 $this->post('password/reset', 'Auth\ResetPasswordController@reset');
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/', 'EntryController@index')->name('index');
+
+// 展示文章
+Route::resource('articles','ArticleController')->except('index');
+Route::resource('categories','CategoryController')->only('show');
+Route::resource('tags','TagController')->only('show');
+

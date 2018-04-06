@@ -1,5 +1,11 @@
 #一个漫长的开发日志
 
+#### v0.0.5
+  > 修复
+  1. Laravel前端流(自己手贱删除了vue组件文件o(╥﹏╥)o)
+  > 新增
+  1. 新增 (encore/laravel-admin)[https://github.com/z-song/laravel-admin] 扩展包
+
 #### v0.0.4
   > 新增
   1. 标签库数据填充

@@ -7,6 +7,9 @@
   1. 新增 [encore/laravel-admin](https://github.com/z-song/laravel-admin) 扩展包
   2. 新增 [sparksuite/simplemde-markdown-editor](https://github.com/sparksuite/simplemde-markdown-editor) 扩展包
   3. Laravel-admin 后台功能配置
+  ```
+  提交时间 2018年4月7日18:57:29
+  ```
     
 #### v0.0.4
   > 新增

@@ -15,7 +15,7 @@ class HomeController extends Controller
     {
         return Admin::content(function (Content $content) {
 
-            $content->header('HnhBlog后台');
+            $content->header(config('app.name').'后台');
             $content->description('欢迎回到后台.');
 
             $content->row(Dashboard::title());

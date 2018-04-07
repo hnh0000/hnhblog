@@ -4,8 +4,10 @@
   > 修复
   1. Laravel前端流(自己手贱删除了vue组件文件o(╥﹏╥)o)
   > 新增
-  1. 新增 (encore/laravel-admin)[https://github.com/z-song/laravel-admin] 扩展包
-
+  1. 新增 [encore/laravel-admin](https://github.com/z-song/laravel-admin) 扩展包
+  2. 新增 [sparksuite/simplemde-markdown-editor](https://github.com/sparksuite/simplemde-markdown-editor) 扩展包
+  3. Laravel-admin 后台功能配置
+    
 #### v0.0.4
   > 新增
   1. 标签库数据填充

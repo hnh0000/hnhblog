@@ -12,6 +12,7 @@ use Encore\Admin\Facades\Admin;
 use Encore\Admin\Layout\Content;
 use App\Http\Controllers\Controller;
 use Encore\Admin\Controllers\ModelForm;
+use Illuminate\Support\Facades\Storage;
 
 class ArticleController extends Controller
 {
@@ -77,26 +78,30 @@ class ArticleController extends Controller
 
             $grid->column('id','ID')->sortable();
 
+            $grid->surface_plot('封面图')->display(function($surface_plot) {
+                $src = Storage::disk('public')->url($surface_plot);
+                return "<img src='{$src}'  style='max-width:70px;max-height:50px' class='img'>";
+            });
+
             $grid->column('category.name','分类')->display(function($category) {
-                return "<a>{$category}</a>";
+                return $category;
             });
 
             $grid->tags('标签')->pluck('name')->display(function ($tags){
                 $names = array_map(function($tag) {
-                    return "<a>{$tag}</a>";
+                    return $tag;
                 }, $tags->toArray());
                 return join(',', $names);
             });
 
             $grid->title('标题')->display(function($text) {
-                return '<a>'.str_limit($text,15).'</a>';
+                return str_limit($text,15);
             });
 
             $grid->content('正文')->display(function($text) {
                 return str_limit($text, 25);
             });
 
-            $grid->watch('阅读量');
             $grid->created_at('创建时间');
             $grid->updated_at('更新时间');
 
@@ -105,6 +110,8 @@ class ArticleController extends Controller
                 'off' => ['value' => false, 'text' => '隐藏'],
             ];
             $grid->show('显示')->switch($states);
+
+            $grid->watch('阅读量');
 
             $grid->filter(function($filter) {
                 $filter->like('title', 'title');
@@ -127,6 +134,8 @@ class ArticleController extends Controller
 
             $form->display('id', 'ID');
 
+            $form->image('surface_plot','封面图')->move('article')->removable();
+
             $form->text('title', '标题')->rules('required');
             $form->select('category_id', '分类')->options(Category::pluck('name','id'))->rules('required');
             $form->multipleSelect('tags', '标签')->options(Tag::all()->pluck('name', 'id'))->rules('required');
@@ -136,8 +145,8 @@ class ArticleController extends Controller
                 'on'  => ['value' => 1, 'text' => 'on'],
                 'off' => ['value' => 0, 'text' => 'off'],
             ];
-            $form->switch('show', '显示')->default(1)->states($states);
             $form->editor('content', '正文');
+            $form->switch('show', '显示')->default(1)->states($states);
 
             $form->display('created_at', 'Created At');
             $form->display('updated_at', 'Updated At');

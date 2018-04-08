@@ -11,10 +11,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // 填充用户数据
-//         $this->call(\App\Models\User::class);
+
 
          // 填充文章数据
         $this->call(ArticleTableSeeder::class);
+
+        // 填充后台数据
+        $this->call(AdminDataSeeder::class);
     }
 }

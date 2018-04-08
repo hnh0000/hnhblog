@@ -20,6 +20,7 @@ class CreateArticlesTable extends Migration
             $table->string('title','80')->comment("标题");
             $table->string('author','20')->default(config('hnhBlog.article_author'))->comment("作者");
             $table->text('content')->comment("文章内容");
+            $table->string('surface_plot',100)->nullable()->comment('封面图');
             $table->integer('watch')->unsigned()->default('0')->comment('阅读次数');
             $table->boolean('show')->default(1)->comment('文章是否显示');
             $table->timestamps();

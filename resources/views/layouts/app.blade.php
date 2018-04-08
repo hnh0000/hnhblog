@@ -8,7 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title','HnhBlog')</title>
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}?s=3" rel="stylesheet">
+    <link href="{{ mix('css/app.css') }}?s=3" rel="stylesheet">
     @stack('styles')
 </head>
 <body>
@@ -18,7 +18,7 @@
     </div>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}?s=1"></script>
+    <script src="{{ mix('js/app.js') }}"></script>
     @stack('scripts')
 
 </body>

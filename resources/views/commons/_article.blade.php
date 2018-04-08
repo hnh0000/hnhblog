@@ -15,7 +15,7 @@
     <div role="row" class="col-md-12 col-xs-12 col-sm-12" style="padding-top: 5px;">
         <div class="col-md-4 col-sm-5 col-xs-5" style="">
             <a href="" class="thumbnail">
-                <img class="" height="140" src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3588772980,2454248748&fm=27&gp=0.jpg" alt="图片1" title="图片2">
+                <img class="" height="140" src="{{ Storage::disk('public')->url($article->surface_plot) }}" alt="{{ $article->title }}" title="{{ $article->title }}">
             </a>
         </div>
 

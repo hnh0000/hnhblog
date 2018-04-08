@@ -22,7 +22,7 @@
             <ul class="nav navbar-nav">
 
                 @foreach(\App\Models\Category::select('name','id')->get() as $category)
-                    <li class="{{ active_class(if_route_param('tag', $category->id)) }} hover"><a href="" class="">{{ $category->name }}</a></li>
+                    <li class="{{ active_class(if_route_param('category', $category->id)) }}"><a href="{{ route('categories.show', $category->id) }}" class="">{{ $category->name }}</a></li>
                 @endforeach
 
                 <li><a href="">短语</a></li>
@@ -57,7 +57,7 @@
                             </ul>
                         </li>
                     @else
-                        <li><a href="#">登录</a></li>
+                        {{--<li><a href="#">登录</a></li>--}}
                     @endauth
             </ul>
         </div>

@@ -16,7 +16,6 @@ class AdminDataSeeder extends Seeder
 
         $this->menuSeed($pdo);
 
-        \Illuminate\Support\Facades\DB::table('admin_users')->insert(['name' => 'Administrator', 'username' => 'admin', 'password' => bcrypt('admin')]);
     }
 
     /*

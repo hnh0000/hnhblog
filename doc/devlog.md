@@ -3,6 +3,11 @@
 #### v0.0.6
   >新增
   1. 文章封面图
+  2. 新增[erusev/parsedown](https://packagist.org/packages/erusev/parsedown) 扩展包
+  3. markdown语法.
+  ```
+  提交时间 2018年4月15日17:31:37
+  ```
 
 #### v0.0.5
   > 修复

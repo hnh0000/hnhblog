@@ -11,7 +11,7 @@
 
     <h5 class="page-header"></h5>
 
-    <div class="content">
-        {{ $article->content }}
+    <div class="content markdown">
+        {!! $article->content  !!}
     </div>
 </article>

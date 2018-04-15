@@ -98,8 +98,8 @@ class ArticleController extends Controller
                 return str_limit($text,15);
             });
 
-            $grid->content('正文')->display(function($text) {
-                return str_limit($text, 25);
+            $grid->old_content('正文')->display(function($text) {
+                return str_limit($text, 80);
             });
 
             $grid->created_at('创建时间');
@@ -145,7 +145,7 @@ class ArticleController extends Controller
                 'on'  => ['value' => 1, 'text' => 'on'],
                 'off' => ['value' => 0, 'text' => 'off'],
             ];
-            $form->editor('content', '正文');
+            $form->editor('old_content', '正文');
             $form->switch('show', '显示')->default(1)->states($states);
 
             $form->display('created_at', 'Created At');

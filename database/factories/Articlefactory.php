@@ -10,6 +10,7 @@ $factory->define(\App\Models\Article::class, function(Faker $faker) {
     return [
         'title' => $faker->title,
         'content' => $faker->text,
+        'old_content' => $faker->text,
         'category_id' => mt_rand(1,$category_num),
     ];
 

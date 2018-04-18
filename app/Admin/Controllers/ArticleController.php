@@ -119,6 +119,12 @@ class ArticleController extends Controller
                 $filter->equal('show', 'show')->select([1 => '显示', 0 => '隐藏']);
             });
 
+            $grid->tools(function($tools) {
+                $tools->batch(function ($batch){
+//                    $batch->disableDelete();
+                });
+            });
+
             $grid->disableExport();
         });
     }

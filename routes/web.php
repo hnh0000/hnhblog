@@ -16,9 +16,9 @@ $this->post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail'
 $this->get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
 $this->post('password/reset', 'Auth\ResetPasswordController@reset');
 
-Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/', 'EntryController@index')->name('index');
+Route::get('/home', 'HomeController@index')->name('home');
 
 // 展示文章
 Route::resource('articles','ArticleController')->except('index');

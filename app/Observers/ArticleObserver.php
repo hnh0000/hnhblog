@@ -22,6 +22,9 @@ class  ArticleObserver{
     {
         // 解析maarkdown语法
         $article->content = app(Markdown::class)->markdown($article->old_content);
+
+        // 截取描述
+        $article->describe = str_limit(strip_tags($article->content),'300','...');
     }
 
 }

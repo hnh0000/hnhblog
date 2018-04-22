@@ -25,7 +25,6 @@
                     <li class="{{ active_class(if_route_param('category', $category->id)) }}"><a href="{{ route('categories.show', $category->id) }}" class="">{{ $category->name }}</a></li>
                 @endforeach
 
-                <li><a href="">短语</a></li>
             </ul>
 
             <!-- Right Side Of Navbar -->

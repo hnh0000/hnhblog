@@ -20,7 +20,7 @@
         </div>
 
         <p style="font-size: 18px;">
-           {{ str_limit(strip_tags($article->content),'300','...') }}
+           {{ $article->describe }}
         </p>
     </div>
 

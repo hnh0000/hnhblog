@@ -9,17 +9,19 @@
     <title>@yield('title','HnhBlog')</title>
     <!-- Styles -->
     <link href="{{ mix('css/app.css') }}?s=3" rel="stylesheet">
+    <meta name="keywords" content="@yield('keywords','洪乃火,个人博客,个人技术博客,PHP博客,Laravel博客')"/>
+    <meta name="description" content="@yield('description','洪乃火个人博客,专注技术分享，个人情感.')"/>
     @stack('styles')
 </head>
 <body>
-    <div id="app" class="index-page">
-        @include('layouts._header')
-        @yield('content')
-    </div>
+<div id="app" class="index-page">
+    @include('layouts._header')
+    @yield('content')
+</div>
 
-    <!-- Scripts -->
-    <script src="{{ mix('js/app.js') }}"></script>
-    @stack('scripts')
+<!-- Scripts -->
+<script src="{{ mix('js/app.js') }}"></script>
+@stack('scripts')
 
 </body>
 </html>

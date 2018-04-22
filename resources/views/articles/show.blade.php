@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('description',$article->describe)
+
 @section('content')
     <div class="container ">
         <div class="row">

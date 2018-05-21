@@ -21,6 +21,10 @@
 
 <!-- Scripts -->
 <script src="{{ mix('js/app.js') }}"></script>
+<script>
+    $(function () { $("[data-toggle='tooltip']").tooltip(); });
+</script>
+
 @stack('scripts')
 
 </body>

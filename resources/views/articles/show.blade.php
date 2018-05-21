@@ -10,7 +10,7 @@
                 @include('articles._article')
 
             </div>
-            @include('commons._tag')
+            @include('layouts._tag')
         </div>
     </div>
 @endsection

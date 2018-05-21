@@ -121,7 +121,7 @@ class ArticleController extends Controller
 
             $grid->tools(function($tools) {
                 $tools->batch(function ($batch){
-//                    $batch->disableDelete();
+                    $batch->disableDelete();
                 });
             });
 

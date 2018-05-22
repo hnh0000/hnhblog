@@ -30,16 +30,16 @@
             <!-- Right Side Of Navbar -->
             <ul class="nav navbar-nav navbar-right">
                 <!-- Authentication Links -->
-                    @auth
+                    @auth('admin')
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                                aria-expanded="false" aria-haspopup="true" v-pre>
-                                1234 <span class="caret"></span>
+                                {{Auth::guard('admin')->user()->username}} <span class="caret"></span>
                             </a>
 
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a href="">进入后台</a>
+                                    <a href="{{url(config('admin.route.prefix'))}}">进入后台</a>
                                 </li>
                                 <li>
                                     <a href="{{ route('logout') }}"
@@ -50,13 +50,13 @@
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST"
                                           style="display: none;">
-                                        {{ csrf_field() }}
+                                        {{csrf_token()}}
                                     </form>
                                 </li>
                             </ul>
                         </li>
                     @else
-                        {{--<li><a href="#">登录</a></li>--}}
+                        <li><a href="#">登录</a></li>
                     @endauth
             </ul>
         </div>

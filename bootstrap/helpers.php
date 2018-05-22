@@ -8,10 +8,12 @@
  */
 
 
-
-/******** 字符串操作 ********/
-
-function str_pos_insert($haystack,$target, $str, $direction=true){
-    $loca = strpos($haystack, $target);
-    dd($loca);
+/**
+ * 以-切割路由昵称，方便设置不同页面的样式
+ * @return mixed
+ */
+function route_class()
+{
+    return str_replace('.','-',Route::currentRouteName());
 }
+

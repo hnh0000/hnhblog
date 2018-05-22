@@ -14,7 +14,7 @@ class SimplemdeEditor extends Field
     protected $view = 'admin.simplemde-editor';
 
     protected static $css = [
-        '/css/markdown.css',
+        'assets/css/markdown.css',
     ];
 
     protected static $js = [

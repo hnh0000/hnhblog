@@ -12,8 +12,8 @@ Route::group([
 
     $router->get('/', 'HomeController@index');
 
-    $router->resource('/articles', 'ArticleController')->names('admin_articles');
-    $router->resource('/tags', 'TagController');
-    $router->resource('/categories', 'CategoryController');
+    $router->resource('/articles', 'ArticleController')->names('admin.articles');
+    $router->resource('/tags', 'TagController')->names('admin.tags');
+    $router->resource('/categories', 'CategoryController')->names('admin.categories');
 
 });

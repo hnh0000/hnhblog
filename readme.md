@@ -4,7 +4,7 @@
 
 ## 依赖包
 
-### composer 依赖
+### 后端php依赖
 
  名称 | 描述
  ---|---
@@ -13,7 +13,7 @@
  [laravel-admin-ext/helpers](https://github.com/laravel-admin-extensions/helpers) | 后台管理器插件
  [erusev/parsedown](https://packagist.org/packages/erusev/parsedown) | 解析markdown语法
   
-### npm 依赖
+### 前端依赖
 
 名称 | 描述
  ---|---

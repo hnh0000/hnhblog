@@ -145,7 +145,6 @@ class ArticleController extends Controller
             $form->text('title', '标题')->rules('required');
             $form->select('category_id', '分类')->options(Category::pluck('name','id'))->rules('required');
             $form->multipleSelect('tags', '标签')->options(Tag::all()->pluck('name', 'id'))->rules('required');
-            $form->text('author', '作者')->default(config('hnhBlog.article_author'))->rules('required');
 
             $states = [
                 'on'  => ['value' => 1, 'text' => 'on'],

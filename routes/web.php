@@ -18,10 +18,13 @@ $this->post('password/reset', 'Auth\ResetPasswordController@reset');
 
 
 Route::get('/', 'EntryController@index')->name('index');
-Route::get('/home', 'HomeController@index')->name('home');
 
-// 展示文章
 Route::resource('articles','ArticleController')->except('index');
 Route::resource('categories','CategoryController')->only('show');
 Route::resource('tags','TagController')->only('show');
+
+// 简历
+Route::resource('resumes', 'ResumeController')->only('index');
+
+
 

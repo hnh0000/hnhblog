@@ -43319,12 +43319,20 @@ module.exports = Component.exports
 
 /***/ }),
 
+/***/ "./resources/assets/sass/resume.scss":
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ 0:
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__("./resources/assets/js/app.js");
 __webpack_require__("./resources/assets/sass/app.scss");
-module.exports = __webpack_require__("./resources/assets/sass/markdown.scss");
+__webpack_require__("./resources/assets/sass/markdown.scss");
+module.exports = __webpack_require__("./resources/assets/sass/resume.scss");
 
 
 /***/ })

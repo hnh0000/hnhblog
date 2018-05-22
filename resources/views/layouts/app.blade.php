@@ -8,19 +8,19 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title','HnhBlog')</title>
     <!-- Styles -->
-    <link href="{{ mix('css/app.css') }}?s=3" rel="stylesheet">
+    <link href="{{ mix('assets/css/app.css') }}" rel="stylesheet">
     <meta name="keywords" content="@yield('keywords','洪乃火,个人博客,个人技术博客,PHP博客,Laravel博客')"/>
     <meta name="description" content="@yield('description','洪乃火个人博客,专注技术分享，个人情感.')"/>
     @stack('styles')
 </head>
 <body>
-<div id="app" class="index-page">
+<div id="app" class="{{route_class()}}-page">
     @include('layouts._header')
     @yield('content')
 </div>
 
 <!-- Scripts -->
-<script src="{{ mix('js/app.js') }}"></script>
+<script src="{{ mix('assets/js/app.js') }}"></script>
 <script>
     $(function () { $("[data-toggle='tooltip']").tooltip(); });
 </script>

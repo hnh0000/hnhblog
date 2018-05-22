@@ -8759,6 +8759,10 @@ button.close {
   content: normal;
 }
 
+/*
+ 自己定义的一个css类文件
+ */
+
 .shade-1 {
   -webkit-box-shadow: 0 1px 2px 0 #E2E2E2;
           box-shadow: 0 1px 2px 0 #E2E2E2;
@@ -8775,7 +8779,7 @@ article {
   background: white;
 }
 
-#app.index-page article {
+article {
   overflow: hidden;
   padding: 10px;
   margin-bottom: 25px;

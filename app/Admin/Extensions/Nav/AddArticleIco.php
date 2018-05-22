@@ -13,7 +13,7 @@ class AddArticleIco
 {
     public function __toString()
     {
-        $url = route('admin_articles.create');
+        $url = route('admin.articles.create');
         return <<<html
 <li class="dropdown notifications-menu">
     <a href="{$url}" class="dropdown-toggle">

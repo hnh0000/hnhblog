@@ -42,15 +42,15 @@
                                     <a href="{{url(config('admin.route.prefix'))}}">进入后台</a>
                                 </li>
                                 <li>
-                                    <a href="{{ route('logout') }}"
+                                    <a href="{{ app(\App\Plugs\User::class)->logoutLink() }}"
                                            onclick="event.preventDefault();
                                                          document.getElementById('logout-form').submit();">
                                         Logout
                                     </a>
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                    <form id="logout-form" action="" method="POST"
                                           style="display: none;">
-                                        {{csrf_token()}}
+                                        {{csrf_field()}}
                                     </form>
                                 </li>
                             </ul>

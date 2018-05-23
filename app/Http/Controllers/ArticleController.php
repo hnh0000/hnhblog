@@ -2,6 +2,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
+use App\Plugs\User;
+use Illuminate\Support\Facades\Auth;
 
 class ArticleController extends  Controller {
 

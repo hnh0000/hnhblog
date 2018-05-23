@@ -12,19 +12,17 @@ namespace App\Observers;
 use App\Models\Article;
 use App\Plugs\Markdown;
 
-class  ArticleObserver{
+class  ArticleObserver
+{
 
-    /**
-     * article模型监听save
-     * @param Article $article
-     */
+
     public function saving(Article $article)
     {
         // 解析maarkdown语法
         $article->content = app(Markdown::class)->markdown($article->old_content);
 
         // 截取描述
-        $article->describe = str_limit(strip_tags($article->content),'300','...');
+        $article->describe = str_limit(strip_tags($article->content), '300', '...');
     }
 
 }

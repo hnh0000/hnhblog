@@ -22,7 +22,7 @@ class CreateTagsTable extends Migration
 
         $data = [
             ['name' => 'laravel'],
-            ['name' => 'php'],
+            ['name' => '原生PHP'],
             ['name' => 'js'],
             ['name' => '转载'],
             ['name' => '生活'],

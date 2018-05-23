@@ -39,7 +39,7 @@ class Model extends M
      */
     public function scopeNewest($query)
     {
-        return $query->orderBy('updated_at','desc');
+        return $query->orderBy('created_at','desc');
     }
 
 

@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);.hljs{display:block;overflow-x:auto;padding:0.5em;color:#abb2bf;background:#282c34}.hljs-comment,.hljs-quote{color:#5c6370;font-style:italic}.hljs-doctag,.hljs-keyword,.hljs-formula{color:#c678dd}.hljs-section,.hljs-name,.hljs-selector-tag,.hljs-deletion,.hljs-subst{color:#e06c75}.hljs-literal{color:#56b6c2}.hljs-string,.hljs-regexp,.hljs-addition,.hljs-attribute,.hljs-meta-string{color:#98c379}.hljs-built_in,.hljs-class .hljs-title{color:#e6c07b}.hljs-attr,.hljs-variable,.hljs-template-variable,.hljs-type,.hljs-selector-class,.hljs-selector-attr,.hljs-selector-pseudo,.hljs-number{color:#d19a66}.hljs-symbol,.hljs-bullet,.hljs-link,.hljs-meta,.hljs-selector-id,.hljs-title{color:#61aeee}.hljs-emphasis{font-style:italic}.hljs-strong{font-weight:bold}.hljs-link{text-decoration:underline}/**
+.hljs{display:block;overflow-x:auto;padding:0.5em;color:#abb2bf;background:#282c34}.hljs-comment,.hljs-quote{color:#5c6370;font-style:italic}.hljs-doctag,.hljs-keyword,.hljs-formula{color:#c678dd}.hljs-section,.hljs-name,.hljs-selector-tag,.hljs-deletion,.hljs-subst{color:#e06c75}.hljs-literal{color:#56b6c2}.hljs-string,.hljs-regexp,.hljs-addition,.hljs-attribute,.hljs-meta-string{color:#98c379}.hljs-built_in,.hljs-class .hljs-title{color:#e6c07b}.hljs-attr,.hljs-variable,.hljs-template-variable,.hljs-type,.hljs-selector-class,.hljs-selector-attr,.hljs-selector-pseudo,.hljs-number{color:#d19a66}.hljs-symbol,.hljs-bullet,.hljs-link,.hljs-meta,.hljs-selector-id,.hljs-title{color:#61aeee}.hljs-emphasis{font-style:italic}.hljs-strong{font-weight:bold}.hljs-link{text-decoration:underline}/**
  * simplemde v1.11.2
  * Copyright Next Step Webs, Inc.
  * @link https://github.com/NextStepWebs/simplemde-markdown-editor
@@ -1404,7 +1404,7 @@ th {
 
 html {
   font-size: 10px;
-  -webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 body {
@@ -7890,7 +7890,7 @@ button.close {
   color: #fff;
   text-align: center;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
-  background-color: transparent;
+  background-color: rgba(0, 0, 0, 0);
 }
 
 .carousel-control.left {
@@ -7979,7 +7979,7 @@ button.close {
   border-radius: 10px;
   cursor: pointer;
   background-color: #000 \9;
-  background-color: transparent;
+  background-color: rgba(0, 0, 0, 0);
 }
 
 .carousel-indicators .active {
@@ -8774,14 +8774,108 @@ button.close {
   overflow: hidden;
 }
 
+.chunk {
+  background: white;
+}
+
+.zero {
+  margin: 0;
+  padding: 0;
+}
+
+.zeroed {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
 section,
 article {
   background: white;
+}
+
+body {
+  font-family: Hiragino Sans GB, "Hiragino Sans GB", Helvetica, "Microsoft YaHei", Arial, sans-serif;
 }
 
 article {
   overflow: hidden;
   padding: 10px;
   margin-bottom: 25px;
+}
+
+li {
+  list-style-type: none;
+}
+
+#app.articles-show-page .comments .input {
+  margin-top: 20px;
+  overflow: hidden;
+}
+
+#app.articles-show-page .comments .comment_content {
+  padding-left: 100px;
+}
+
+#app.articles-show-page .comments .comment_content .user_name {
+  font-size: 17px;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 0px;
+}
+
+#app.articles-show-page .comments .comment_content .release_time {
+  font-size: 12px;
+  margin-bottom: 1px;
+}
+
+#app.articles-show-page .comments .comment_content .com {
+  font-size: 15px;
+}
+
+footer {
+  background-attachment: scroll;
+  background-clip: border-box;
+  background-color: #f9f9f9;
+  background-image: none;
+  background-origin: padding-box;
+  background-position: 0% 0%;
+  background-position-x: 0%;
+  background-position-y: 0%;
+  background-repeat: repeat;
+  background-size: auto auto;
+  border-top-color: #eeeeee;
+  border-top-style: solid;
+  border-top-width: 0.8px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  color: #8e8e8e;
+  counter-reset: section 0;
+  display: block;
+  font-family: Maven Pro, Microsoft YaHei, sans-serif;
+  font-size: 13px;
+  letter-spacing: -0.2px;
+  line-height: 19.5px;
+  min-height: 100px;
+  padding-bottom: 39px;
+  padding-top: 65px;
+}
+
+footer h5 {
+  color: #000;
+  font-size: 1.4em;
+  margin-bottom: 35px;
+}
+
+footer .logo {
+  font-family: Maven Pro, Microsoft YaHei, sans-serif;
+  font-weight: 500;
+  color: #464646;
+  top: -25px;
+  font-size: 2em;
+  margin-bottom: 27px;
+}
+
+footer .describe {
+  max-width: 440px;
 }
 

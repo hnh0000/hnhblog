@@ -3,12 +3,29 @@
  */
 
 
-//--加上阴影
+// 加上阴影
 .shade-1 {
   box-shadow: 0 1px 2px 0 #E2E2E2;
 }
 
-// --单行溢出隐藏
+// 单行溢出隐藏
 .text-overflow {
   text-overflow: ellipsis;white-space: nowrap;overflow: hidden;
+}
+
+// 块区域
+.chunk {
+  background: white;
+}
+
+// 调整到0的位置
+.zero {
+  margin: 0;
+  padding: 0;
+}
+
+// 强制调整到0的位置
+.zeroed {
+  margin: 0!important;
+  padding: 0!important;
 }

@@ -1,5 +1,3 @@
-// Fonts
-@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
 // Variables
 @import "variables";
 // Bootstrap
@@ -13,9 +11,98 @@ section, article {
   background: white;
 }
 
+body {
+  font-family: Hiragino Sans GB, "Hiragino Sans GB", Helvetica, "Microsoft YaHei", Arial, sans-serif;
+}
+
 article {
   overflow: hidden;
   padding: 10px;
   margin-bottom: 25px;
+}
+
+li {
+  list-style-type: none;
+}
+
+// 文章详情页
+#app.articles-show-page {
+
+  .comments {
+
+    .input {
+      margin-top: 20px;
+      overflow: hidden;
+    }
+
+    .comment_content {
+      padding-left: 100px;
+
+      .user_name {
+        font-size: 17px;
+        font-weight: 700;
+        color: #000;
+        margin-bottom: 0px;
+      }
+      .release_time {
+        font-size: 12px;
+        margin-bottom: 1px;
+      }
+      .com {
+        font-size: 15px;
+      }
+
+    }
+
+  }
+
+}
+
+// 页脚
+
+footer {
+  background-attachment: scroll;
+  background-clip: border-box;
+  background-color: rgb(249, 249, 249);
+  background-image: none;
+  background-origin: padding-box;
+  background-position: 0% 0%;
+  background-position-x: 0%;
+  background-position-y: 0%;
+  background-repeat: repeat;
+  background-size: auto auto;
+  border-top-color: rgb(238, 238, 238);
+  border-top-style: solid;
+  border-top-width: 0.8px;
+  box-sizing: border-box;
+  color: rgb(142, 142, 142);
+  counter-reset: section 0;
+  display: block;
+  font-family: Maven Pro, Microsoft YaHei, sans-serif;
+  font-size: 13px;
+  letter-spacing: -0.2px;
+  line-height: 19.5px;
+  min-height: 100px;
+  padding-bottom: 39px;
+  padding-top: 65px;
+
+  h5 {
+    color: #000;
+    font-size: 1.4em;
+    margin-bottom: 35px;
+  }
+
+  .logo {
+    font-family: Maven Pro, Microsoft YaHei, sans-serif;
+    font-weight: 500;
+    color: #464646;
+    top: -25px;
+    font-size: 2em;
+    margin-bottom: 27px;
+  }
+
+  .describe {
+    max-width: 440px;
+  }
 }
 

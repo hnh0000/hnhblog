@@ -17,6 +17,7 @@
 <div id="app" class="{{route_class()}}-page">
     @include('layouts._header')
     @yield('content')
+    @include('layouts._footer')
 </div>
 
 <!-- Scripts -->

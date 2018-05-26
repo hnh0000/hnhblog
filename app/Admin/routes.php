@@ -15,5 +15,7 @@ Route::group([
     $router->resource('/articles', 'ArticleController')->names('admin.articles');
     $router->resource('/tags', 'TagController')->names('admin.tags');
     $router->resource('/categories', 'CategoryController')->names('admin.categories');
+    $router->resource('/users', 'UserController')->names('admin.categories');
+    $router->resource('/configs', 'ConfigController')->names('admin.configs')->except(['destroy','create','store']);
 
 });

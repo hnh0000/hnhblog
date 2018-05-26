@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>@yield('title','HnhBlog')</title>
+    <title>@yield('title', setting('title'))</title>
     <!-- Styles -->
     <link href="{{ mix('assets/css/app.css') }}" rel="stylesheet">
-    <meta name="keywords" content="@yield('keywords','洪乃火,个人博客,个人技术博客,PHP博客,Laravel博客')"/>
-    <meta name="description" content="@yield('description','洪乃火个人博客,专注技术分享，个人情感.')"/>
+    <meta name="keywords" content="@yield('keywords',setting('keywords'))"/>
+    <meta name="description" content="@yield('description',setting('description'))"/>
     @stack('styles')
 </head>
 <body>

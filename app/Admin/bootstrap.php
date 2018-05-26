@@ -23,6 +23,8 @@ Encore\Admin\Form::forget(['map', 'editor']);
 
 // 自定义编辑器
 \Encore\Admin\Form::extend('editor', \App\Admin\Extensions\SimplemdeEditor::class);
+// 解析json的textarea
+\Encore\Admin\Form::extend('json_textarea', \App\Admin\Extensions\JsonTextarea::class);
 
 // 自定义导航样式
 Admin::navbar( function(\Encore\Admin\Widgets\Navbar $navbar) {

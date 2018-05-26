@@ -140,7 +140,7 @@ class ArticleController extends Controller
         return Admin::form(Article::class, function (Form $form) {
             $form->display('id', 'ID');
 
-            $form->image('surface_plot', '封面图')->move('article')->removable();
+            $form->image('surface_plot', '封面图')->move('article')->removable()->rules('required');
 
             $form->text('title', '标题')->rules('required');
             $form->select('category_id', '分类')->options(Category::pluck('name', 'id'))->rules('required');
@@ -150,7 +150,7 @@ class ArticleController extends Controller
                 'on' => ['value' => 1, 'text' => 'on'],
                 'off' => ['value' => 0, 'text' => 'off'],
             ];
-            $form->editor('old_content', '正文');
+            $form->editor('old_content', '正文')->rules('required');
             $form->switch('show', '显示')->default(1)->states($states);
 
             $form->display('created_at', 'Created At');

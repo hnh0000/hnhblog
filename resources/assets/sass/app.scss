@@ -11,8 +11,14 @@ section, article {
   background: white;
 }
 
+html {
+  min-height: 100%;
+  position: relative;
+}
+
 body {
   font-family: Hiragino Sans GB, "Hiragino Sans GB", Helvetica, "Microsoft YaHei", Arial, sans-serif;
+  margin-bottom: 360px;
 }
 
 article {
@@ -27,23 +33,14 @@ li {
 
 // 导航
 nav {
-  .navbar-nav > li > a{
+  .navbar-nav > li > a {
     line-height: 28px;
   }
 }
 
 // 页脚
 footer {
-  background-attachment: scroll;
-  background-clip: border-box;
   background-color: rgb(249, 249, 249);
-  background-image: none;
-  background-origin: padding-box;
-  background-position: 0% 0%;
-  background-position-x: 0%;
-  background-position-y: 0%;
-  background-repeat: repeat;
-  background-size: auto auto;
   border-top-color: rgb(238, 238, 238);
   border-top-style: solid;
   border-top-width: 0.8px;
@@ -58,6 +55,11 @@ footer {
   min-height: 100px;
   padding-bottom: 39px;
   padding-top: 65px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  height: 315px;
 
   h5 {
     color: #000;

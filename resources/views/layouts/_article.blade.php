@@ -49,7 +49,7 @@
         </article>
 
     @endforeach
-        @if($articles->total())
+        @if($articles->hasMorePages())
             <div class="chunk shade-1 col-md-12 col-xs-12 col-sm-12">
                 {{ $articles->links() }}
             </div>

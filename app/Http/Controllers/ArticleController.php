@@ -2,8 +2,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
-use App\Plugs\User;
-use Illuminate\Support\Facades\Auth;
 
 class ArticleController extends  Controller {
 
@@ -14,6 +12,7 @@ class ArticleController extends  Controller {
      */
     public function show(Article $article)
     {
+        $article->increment('watch','1');
         return view('articles.show',compact('article'));
     }
     

@@ -10,7 +10,9 @@
                 @include('articles._article')
 
             </div>
-            @include('layouts._tag')
+
+            @include('layouts._tag',['tags' => \App\Models\Tag::withCount('articles')->get()])
+
         </div>
     </div>
 @endsection

@@ -1,4 +1,4 @@
-<footer id="footer" class="wrap mobile shade-1" style="background: white;margin-top: 100px;">
+<footer id="footer" class="wrap mobile shade-1" style="background: white;margin-top: 60px;">
     <div class="container">
         <div class="row ">
             <div class="col-md-6 desc">

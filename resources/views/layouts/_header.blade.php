@@ -22,7 +22,7 @@
             <ul class="nav navbar-nav">
 
                 @foreach(\App\Models\Category::select('name','id')->get() as $category)
-                    <li class="{{ active_class(if_route_param('category', $category->id)) }}"><a href="{{ route('categories.show', $category->id) }}" class="">{{ $category->name }}</a></li>
+                    <li class="{{ active_class(if_route_param('category', $category->id)) }}" style=""><a href="{{ route('categories.show', $category->id) }}" class="">{{ $category->name }}</a></li>
                 @endforeach
 
             </ul>
@@ -31,7 +31,7 @@
             <ul class="nav navbar-nav navbar-right">
                     @auth('admin')
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                            <a href="#" class="dropdown-toggle" style="" data-toggle="dropdown" role="button"
                                aria-expanded="false" aria-haspopup="true" v-pre>
                                 <img src="http://www.jq22.com/demo/jQueryComment201711092334/images/img.jpg" class="img-circle" width="25" height="25">
                                 {{Auth::guard('admin')->user()->username}} <span class="caret"></span>

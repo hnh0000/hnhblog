@@ -8807,29 +8807,8 @@ li {
   list-style-type: none;
 }
 
-#app.articles-show-page .comments .input {
-  margin-top: 20px;
-  overflow: hidden;
-}
-
-#app.articles-show-page .comments .comment_content {
-  padding-left: 100px;
-}
-
-#app.articles-show-page .comments .comment_content .user_name {
-  font-size: 17px;
-  font-weight: 700;
-  color: #000;
-  margin-bottom: 0px;
-}
-
-#app.articles-show-page .comments .comment_content .release_time {
-  font-size: 12px;
-  margin-bottom: 1px;
-}
-
-#app.articles-show-page .comments .comment_content .com {
-  font-size: 15px;
+nav .navbar-nav > li > a {
+  line-height: 28px;
 }
 
 footer {
@@ -8877,5 +8856,30 @@ footer .logo {
 
 footer .describe {
   max-width: 440px;
+}
+
+#app.articles-show-page .comments .input {
+  margin-top: 20px;
+  overflow: hidden;
+}
+
+#app.articles-show-page .comments .comment_content {
+  padding-left: 100px;
+}
+
+#app.articles-show-page .comments .comment_content .user_name {
+  font-size: 17px;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 0px;
+}
+
+#app.articles-show-page .comments .comment_content .release_time {
+  font-size: 12px;
+  margin-bottom: 1px;
+}
+
+#app.articles-show-page .comments .comment_content .com {
+  font-size: 15px;
 }
 

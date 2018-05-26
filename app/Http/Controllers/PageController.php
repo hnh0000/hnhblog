@@ -3,14 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 
-class EntryController extends Controller
+class PageController extends Controller
 {
+
     // 展示首页
     public function index(Article $article)
     {
-        $articles = $article->order()->paginate(8);
+        $articles = $article->order()->with('tags','category')->paginate(8);
         return view('index',compact('articles'));
     }
+
 }

@@ -13,8 +13,8 @@ class TagController extends Controller {
 
     public function show(Tag $tag)
     {
-        $articles = $tag->articles()->paginate(10);
-        return view('tags.show',compact('articles'));
+        $articles = $tag->articles()->with('tags','category')->paginate(10);
+        return view('index',compact('articles'));
     }
 
 }

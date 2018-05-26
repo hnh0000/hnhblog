@@ -10,7 +10,7 @@
             <span aria-hidden="true" class="glyphicon-list glyphicon"></span> {{ $article->category->name }}
         </div>
         <div class="col-md-3 col-sm-6 col-xs-6 text-overflow">
-            <span aria-hidden="true" class="glyphicon-tag glyphicon"></span> {{ implode( ',', $article->tags()->pluck('name')->toArray()) }}
+            <span aria-hidden="true" class="glyphicon-tag glyphicon"></span> {{ implode( ',', $article->tags->pluck('name')->toArray()) }}
         </div>
         <div class="col-md-3 col-sm-6 col-xs-6" data-toggle="tooltip" data-placement="top" title="创建于{{$article->created_at}}">
             <span aria-hidden="true" class="glyphicon-calendar glyphicon"></span> {{substr($article->created_at,0,10)}}

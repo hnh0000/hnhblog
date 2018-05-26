@@ -13,8 +13,8 @@ class CategoryController extends Controller {
 
     public function show(Category $category)
     {
-        $articles = $category->articles()->paginate(10);
-        return view('categories.show', compact('articles'));
+        $articles = $category->articles()->with('tags','category')->paginate(8);
+        return view('index',compact('articles'));
     }
     
 }

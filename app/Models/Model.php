@@ -9,18 +9,14 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model as M;
+use Illuminate\Database\Eloquent\Model as Eloquent;
 
 
-class Model extends M
+class Model extends Eloquent
 {
 
-    /**
-     * 排序
-     * @param $query
-     * @param $way
-     * @return mixed
-     */
+
+    // 数据排序
     public function scopeOrder($query, $way=null)
     {
         switch ($way) {
@@ -32,11 +28,7 @@ class Model extends M
     }
 
 
-    /**
-     * 获取最新的,根据updated_at排序
-     * @param $query
-     * @return mixed
-     */
+    // Order默认排序规则,获取最新的，根据created_at排序
     public function scopeNewest($query)
     {
         return $query->orderBy('created_at','desc');

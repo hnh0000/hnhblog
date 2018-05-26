@@ -28,7 +28,7 @@
         <strong>
             回复数量:2
             /
-            阅读数量:3
+            阅读数量:{{$article->watch}}
         </strong>
         <p class="pull-right" style="cursor: pointer;"><i class="glyphicon glyphicon-heart" style="color: #e8e8e8;"></i> 333</p>
     </div>

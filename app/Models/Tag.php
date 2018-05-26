@@ -10,10 +10,8 @@ class Tag extends Model
 
     public $timestamps = false;
 
-    /**
-     * 获取文章
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
-     */
+
+    // 多对多关联 Tags 表
     public function articles()
     {
         return $this->belongsToMany(Article::class);

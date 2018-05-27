@@ -7,6 +7,8 @@
 
 require('./bootstrap');
 
+require('./paste-upload-image');
+
 
 window.Vue = require('vue');
 

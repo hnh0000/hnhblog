@@ -19,6 +19,8 @@ $this->post('password/reset', 'Auth\ResetPasswordController@reset');
 // 首页
 Route::get('/', 'PageController@index')->name('index');
 
+
+Route::post('articles/content_upload','ArticleController@contentUpload')->name('articles.content_upload');// 文章上传图片
 Route::resource('articles','ArticleController')->except('index');
 Route::resource('categories','CategoryController')->only('show');
 Route::resource('tags','TagController')->only('show');

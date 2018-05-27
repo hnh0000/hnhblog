@@ -5,6 +5,7 @@
  * Date: 2018/4/7
  * Time: 11:12
  */
+
 namespace App\Admin\Extensions;
 
 use Encore\Admin\Form\Field;
@@ -19,13 +20,22 @@ class SimplemdeEditor extends Field
 
     protected static $js = [
         'https://cdn.bootcss.com/simplemde/1.11.2/simplemde.min.js',
+        '/assets/js/paste-upload-image.js',
     ];
 
     public function render()
     {
         $name = $this->formatName($this->column);
+        $upload_url = route('articles.content_upload');
+        $token = csrf_token();
 
         $this->script = <<<EOT
+        
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': '{$token}'
+            }
+        });
 
 var simplemde = new SimpleMDE({
     
@@ -55,7 +65,13 @@ var simplemde = new SimpleMDE({
 });
 
 $(".editor-preview-side").addClass("markdown");
-$(".editor-preview").addClass("markdown");
+
+// 拖动，粘贴上传图片
+$(".CodeMirror-scrolla").pasteUploadImage('{$upload_url}');
+
+
+
+
 
 EOT;
         return parent::render();

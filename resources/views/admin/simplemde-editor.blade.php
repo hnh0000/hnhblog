@@ -6,7 +6,8 @@
 
         @include('admin::form.error')
 
-        <textarea name="{{$name}}">{{ old($column, $value) }}</textarea>
+        <textarea name="{{$name}}" class="CodeMirror-scroll">{{ old($column, $value) }}</textarea>
+        <textarea  class="CodeMirror-scrolla form-control">图上传专用框</textarea>
 
     </div>
 </div>

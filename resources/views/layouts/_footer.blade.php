@@ -7,7 +7,7 @@
                     {{setting('footer_description')}}
                 </div>
             </div>
-            <div class="col-md-4 not-mobile not-pad">
+            <div class="col-md-4 not-mobile not-pad hidden-sm hidden-xs">
                 <h5>友情链接</h5>
                 <div class="row">
                     <div class="col-md-10">
@@ -17,7 +17,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-2 not-mobile not-pad"><h5>服务提供商</h5>
+            <div class="col-md-2 hidden-sm hidden-xs"><h5>服务提供商</h5>
                 <ul class="zeroed">
                     <li style="margin-bottom: 10px;"><a
                                 href="https://www.upyun.com?utm_source=laravist&amp;utm_medium=referral" target="_blank"

@@ -8800,7 +8800,7 @@ html {
 
 body {
   font-family: Hiragino Sans GB, "Hiragino Sans GB", Helvetica, "Microsoft YaHei", Arial, sans-serif;
-  margin-bottom: 360px;
+  margin-bottom: 330px;
 }
 
 article {
@@ -8833,12 +8833,12 @@ footer {
   line-height: 19.5px;
   min-height: 100px;
   padding-bottom: 39px;
-  padding-top: 65px;
+  padding-top: 35px;
   position: absolute;
   bottom: 0;
   right: 0;
   left: 0;
-  height: 315px;
+  height: 280px;
 }
 
 footer h5 {

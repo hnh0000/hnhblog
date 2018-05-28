@@ -43419,7 +43419,7 @@ module.exports = Component.exports
     };
     uploadFile = function uploadFile(file, filename) {
         var formData = new FormData();
-        formData.append('', file);
+        formData.append('imageFile', file);
         formData.append("mimeType", getMimeType(file, filename));
 
         $.ajax({

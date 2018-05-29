@@ -24,7 +24,7 @@
                 <div class="col-md-3 col-sm-6 col-xs-6" data-toggle="tooltip" data-placement="top"
                      title="更新于{{$article->updated_at}}">
                     <span aria-hidden="true"
-                          class="glyphicon glyphicon-pencil"></span> {{ $article->updated_at->diffForHumans() }}
+                          class="glyphicon glyphicon-pencil"></span> {{ substr($article->updated_at,0,10) }}
                 </div>
             </div>
 
@@ -49,7 +49,7 @@
         </article>
 
     @endforeach
-        @if($articles->hasMorePages())
+        @if($articles->hasMorePages(11))
             <div class="chunk shade-1 col-md-12 col-xs-12 col-sm-12">
                 {{ $articles->links() }}
             </div>

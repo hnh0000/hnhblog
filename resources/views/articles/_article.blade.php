@@ -13,7 +13,7 @@
                 <span aria-hidden="true" class="glyphicon-calendar glyphicon"></span> {{substr($article->created_at,0,10)}}
             </div>
             <div class="col-md-3 col-sm-5 col-xs-6" data-toggle="tooltip" data-placement="top" title="更新于{{$article->updated_at}}">
-                <span aria-hidden="true" class="glyphicon glyphicon-pencil"></span> {{ $article->updated_at->diffForHumans() }}
+                <span aria-hidden="true" class="glyphicon glyphicon-pencil"></span> {{ substr($article->updated_at,0,10) }}
             </div>
         </div>
     </div>

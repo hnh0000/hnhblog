@@ -8,6 +8,9 @@ use Illuminate\Database\Eloquent\Builder;
 class Article extends Model
 {
 
+    // 关闭自动维护
+    public $timestamps = false;
+
     // 模型 「启动」 方法
     protected static function boot()
     {

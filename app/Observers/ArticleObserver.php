@@ -18,11 +18,19 @@ class  ArticleObserver
 
     public function saving(Article $article)
     {
+        // 关闭了自动维护时间，改用模型观察来维护。
+        $date = date('Y-m-d H:i:s');
+        if (!$article->created_at) {
+            $article->created_at = $date;
+        }
+        $article->updated_at = $date;
+
         // 解析maarkdown语法
         $article->content = app(Markdown::class)->markdown($article->old_content);
 
         // 截取描述
         $article->describe = str_limit(strip_tags($article->content), '300', '...');
     }
+
 
 }

@@ -12,18 +12,24 @@
                 <div class="row">
                     <div class="col-md-10">
                         <ul class="zeroed">
-                            <li><a target="_blank" class="text-muted" rel="noreferrer noopener" href="https://www.codecasts.com/vip">Laravel-china</a></li>
+                            @foreach(\App\Models\Blogroll::get() as $item)
+                                <li><a target="_blank" class="text-muted" rel="noreferrer noopener"
+                                       href="{{$item->link}}">{{$item->name}}</a></li>
+                            @endforeach
                         </ul>
                     </div>
                 </div>
             </div>
             <div class="col-md-2 hidden-sm hidden-xs"><h5>服务提供商</h5>
                 <ul class="zeroed">
-                    <li style="margin-bottom: 10px;"><a
-                                href="https://www.upyun.com?utm_source=laravist&amp;utm_medium=referral" target="_blank"
-                                rel="noreferrer noopener"><img height="50px"
-                                                               src="https://img.codecasts.com/upyun-logo.png?version=1.0"
-                                                               alt="又拍云存储"></a></li>
+                    @foreach(\App\Models\Isp::get() as $item)
+                        <li style="margin-bottom: 10px;"><a
+                                    href="{{$item->link}}" target="_blank"
+                                    rel="noreferrer noopener"><img height="50px"
+                                                                   src="{{$item->logo}}"
+                                                                   alt="{{$item->name}}" title="{{$item->name}}" data-toggle="tooltip" data-placement="top"></a>
+                        </li>
+                    @endforeach
                 </ul>
             </div>
         </div>

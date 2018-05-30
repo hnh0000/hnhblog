@@ -21,7 +21,6 @@ class CreateConfigsTable extends Migration
             $table->timestamps();
         });
 
-        $times = ['created_at' => date('Y-m-d H:i:s'), 'updated_at' => date('Y-m-d H:i:s')];
 
         $data = [
             ['key' => 'title', 'value' => 'blog', 'name' => '网站标题'], // 网站标题
@@ -34,6 +33,7 @@ class CreateConfigsTable extends Migration
             ['key' => 'copyright', 'value' => '© CODECASTS 2018. All rights reserved. xxx', 'name' => '版权信息'], // 底部版权信息
         ];
 
+        $times = ['created_at' => date('Y-m-d H:i:s'), 'updated_at' => date('Y-m-d H:i:s')];
         array_walk($data, function(&$v) use ($times){
             $v = array_merge($v, $times);
         });

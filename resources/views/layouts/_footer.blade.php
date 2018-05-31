@@ -24,7 +24,7 @@
                 <ul class="zeroed">
                     @foreach(\App\Models\Isp::get() as $item)
                         <li style="margin-bottom: 10px;"><a
-                                    href="{{$item->link}}" target="_blank"
+                                    href="{{Storage::disk('public')->url($item->link)}}" target="_blank"
                                     rel="noreferrer noopener"><img height="50px"
                                                                    src="{{$item->logo}}"
                                                                    alt="{{$item->name}}" title="{{$item->name}}" data-toggle="tooltip" data-placement="top"></a>

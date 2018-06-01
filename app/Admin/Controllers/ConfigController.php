@@ -104,7 +104,7 @@ class ConfigController extends Controller
     {
         return Admin::form(Config::class, function (Form $form) {
 
-            $form->display('key', '标识');
+            $form->text('key', '标识');
 
             $form->text('name', '配置昵称')->rules('required|between:0,255');
 

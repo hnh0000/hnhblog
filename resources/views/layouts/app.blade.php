@@ -11,6 +11,7 @@
     <link href="{{ mix('assets/css/app.css') }}" rel="stylesheet">
     <meta name="keywords" content="@yield('keywords',setting('keywords'))"/>
     <meta name="description" content="@yield('description',setting('description'))"/>
+    <link rel="icon" href="{{setting('logo')}}" type="image/x-icon"/>
     @stack('styles')
 </head>
 <body>

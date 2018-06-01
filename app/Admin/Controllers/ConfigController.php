@@ -89,8 +89,8 @@ class ConfigController extends Controller
             $grid->actions(function ($actions) {
                 $actions->disableDelete();
             });
-            $grid->disableCreateButton();// 禁用多选
-//            $grid->disableRowSelector();// 禁用新增
+//            $grid->disableCreateButton();// 禁用新增
+            $grid->disableRowSelector();// 禁用多选
         });
     }
 

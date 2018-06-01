@@ -31,6 +31,7 @@ class CreateConfigsTable extends Migration
             ['key' => 'article_per_page', 'value' => '8', 'name' => '文章分页数量'], // 网站文章分页数量
             ['key' => 'admin_prefix', 'value' => 'admin', 'name' => '后台访问前缀'], // 后台访问前缀
             ['key' => 'copyright', 'value' => '© CODECASTS 2018. All rights reserved. xxx', 'name' => '版权信息'], // 底部版权信息
+            ['key' => 'logo', 'value' => 'logo', 'name' => 'logo图标'], // 底部版权信息
         ];
 
         $times = ['created_at' => date('Y-m-d H:i:s'), 'updated_at' => date('Y-m-d H:i:s')];

@@ -1,32 +1,21 @@
 <?php
 
 
-// Authentication Routes...
-$this->get('login', 'Auth\LoginController@showLoginForm')->name('login');
-$this->post('login', 'Auth\LoginController@login');
-$this->post('logout', 'Auth\LoginController@logout')->name('logout');
-
-// Registration Routes...
-$this->get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
-$this->post('register', 'Auth\RegisterController@register');
-
-// Password Reset Routes...
-$this->get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
-$this->post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
-$this->get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
-$this->post('password/reset', 'Auth\ResetPasswordController@reset');
-
 // 首页
 Route::get('/', 'PageController@index')->name('index');
 
 
-Route::post('articles/content_upload','ArticleController@contentUpload')->name('articles.content_upload');// 文章上传图片
+// 文章上传图片接口
+Route::post('articles/content_upload','ArticleController@contentUpload')->name('articles.content_upload');
+
+
+// 文章，分类，标签
 Route::resource('articles','ArticleController')->except('index');
 Route::resource('categories','CategoryController')->only('show');
 Route::resource('tags','TagController')->only('show');
 
+// qq登录
+Route::get('api/authorizations/qq','Oauth\AuthController@qq')->name('auth.qq');
+
 // 简历
 Route::resource('resumes', 'ResumeController')->only('index');
-
-
-

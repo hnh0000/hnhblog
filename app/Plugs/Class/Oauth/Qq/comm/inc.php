@@ -1,0 +1,2 @@
+<?php die('forbidden'); ?>
+{"appid":"101483116","appkey":"fed206aeb8266ad90163dc4fe3536d7f","callback":"https://blog.hnh117.com/api","scope":"get_user_info","errorReport":true,"storageType":"file","host":"localhost","user":"root","password":"root","database":"test"}

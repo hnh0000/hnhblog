@@ -18,6 +18,13 @@ return [
         'passwords' => 'users',
     ],
 
+    'qq' => [
+        'appid' => env('AUTH_QQ_APPID'),
+        'appkey' => env('AUTH_QQ_APPKEY'),
+        'callback' => env('AUTH_QQ_CALLBACK'),
+        'scope' => env('AUTH_QQ_SCOPE'),
+    ],
+
     /*
     |--------------------------------------------------------------------------
     | Authentication Guards

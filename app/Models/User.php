@@ -10,6 +10,10 @@ class User extends Authenticatable
 {
     use Notifiable;
 
+    // QQ登录类
+    use \App\Models\User\Qq;
+
+
     /**
      * The attributes that are mass assignable.
      *

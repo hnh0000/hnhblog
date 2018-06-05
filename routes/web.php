@@ -14,8 +14,11 @@ Route::resource('articles','ArticleController')->except('index');
 Route::resource('categories','CategoryController')->only('show');
 Route::resource('tags','TagController')->only('show');
 
-// qq登录
-Route::get('api/authorizations/qq','Oauth\AuthController@qq')->name('auth.qq');
+
+// Auth登录
+Route::get('/login/{type?}','Auth\AuthController@login')->name('auth.login');
+// 登录成功后的回调
+Route::get('auth/info/{type?}','Auth\AuthController@info')->name('auth.info');
 
 // 简历
 Route::resource('resumes', 'ResumeController')->only('index');

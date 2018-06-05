@@ -25,7 +25,11 @@ class AuthController extends Controller
 
         // 获取open_id
         $open_id = $user->openId();
-        echo $open_id;
+
+        // 获取用户信息
+        $info = $user->info();
+
+        dd($info);
     }
 
 

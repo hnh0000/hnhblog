@@ -16,6 +16,8 @@ trait Qq
     private $callback = null;
     private $scope = null;
     private $accessToken = null;
+    private $openid = null;
+    private $info = null; //用户信息
 
     // 构造函数，读取 appid, appkey, callback, scope
     function __construct()
@@ -44,9 +46,9 @@ trait Qq
         // 请求错误
         if (strpos($res, 'callback') === 0) {
             $info = false;
-        }else {
+        } else {
             foreach (explode('&', $res) as $item) {
-                $ite = explode('=',$item);
+                $ite = explode('=', $item);
                 $info[$ite[0]] = $ite[1];
             }
             $this->accessToken = $info['access_token'];
@@ -62,22 +64,55 @@ trait Qq
         // 请求错误
         if (strpos($res, 'callback') === 0) {
             $info = false;
-        }else {
+        } else {
             $info = explode('&', $res);
         }
         return $info;
     }
 
     // 获取用户 openid
-    public function openId($accessToken=null,$code=null)
+    public function openId($accessToken = null, $code = null)
     {
-        $accessToken = $accessToken?: ($this->accessToken?: $this->accessTokens($code)['access_token']);
+        $accessToken = $accessToken ?: ($this->accessToken ?: $this->accessTokens($code)['access_token']);
         $url = "https://graph.qq.com/oauth2.0/me?access_token={$accessToken}";
         $res = trim(file_get_contents($url));
-        $length = strpos($res,');');
-        $str =  trim(substr($res,9,$length-9));
-        $data = json_decode($str);
+        $length = strpos($res, ');');
+        $str = trim(substr($res, 9, $length - 9));
+        $data = json_decode($str, true);
+        $this->openid = $data['openid'];
         return $data['openid'];
     }
+
+    // 获取用户信息 具体返回值请看 http://wiki.connect.qq.com/get_user_info
+    public function info()
+    {
+        if ($this->info !== null) {
+            return $this->info;
+        }
+
+        $url = "https://graph.qq.com/user/get_user_info?access_token={$this->accessToken}&oauth_consumer_key={$this->appid}&openid={$this->openid}";
+        $res = trim(file_get_contents($url));
+        $this->info = json_decode($res, true);
+
+        return $this->info;
+    }
+
+    // 获取性别
+    public function sex() {
+        return $this->info()['gender'];
+    }
+
+    // 获取昵称
+    public function name()
+    {
+        return $this->info()['nickname'];
+    }
+
+    // 获取 40x40 头像
+    public function avatar()
+    {
+        return $this->info()['figureurl_qq_1'];
+    }
+
 
 }

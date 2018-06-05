@@ -20,5 +20,6 @@ Route::get('/login/{type?}','Auth\AuthController@login')->name('auth.login');
 // 登录成功后的回调
 Route::get('auth/info/{type?}','Auth\AuthController@info')->name('auth.info');
 
+
 // 简历
 Route::resource('resumes', 'ResumeController')->only('index');

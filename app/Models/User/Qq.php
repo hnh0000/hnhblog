@@ -15,6 +15,7 @@ trait Qq
     private $appkey = null;
     private $callback = null;
     private $scope = null;
+    private $accessToken = null;
 
     // 构造函数，读取 appid, appkey, callback, scope
     function __construct()
@@ -48,6 +49,7 @@ trait Qq
                 $ite = explode('=',$item);
                 $info[$ite[0]] = $ite[1];
             }
+            $this->accessToken = $info['access_token'];
         }
         return $info;
     }
@@ -69,10 +71,13 @@ trait Qq
     // 获取用户 openid
     public function openId($accessToken=null,$code=null)
     {
-        $accessToken = $accessToken?: $this->accessTokens($code)['accessToken'];
+        $accessToken = $accessToken?: ($this->accessToken?: $this->accessTokens($code)['access_token']);
         $url = "https://graph.qq.com/oauth2.0/me?access_token={$accessToken}";
-        $res = file_get_contents($url);
-        dd($res);
+        $res = trim(file_get_contents($url));
+        $length = strpos($res,');');
+        $str =  trim(substr($res,9,$length-9));
+        $data = json_decode($str);
+        return $data['openid'];
     }
 
 }

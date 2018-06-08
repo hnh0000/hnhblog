@@ -50,12 +50,14 @@
 
                             <li>
                                 <a href="">
+                                    <i class="glyphicon glyphicon-user"></i>&nbsp;
                                     个人中心
                                 </a>
                             </li>
 
                             <li>
                                 <a href="">
+                                    <i class="glyphicon glyphicon-edit"></i>&nbsp;
                                     编辑资料
                                 </a>
                             </li>
@@ -64,6 +66,7 @@
                                 <a href="javascript:;"
                                    onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();">
+                                    <i class="glyphicon glyphicon-log-out"></i>&nbsp;
                                     退出
                                 </a>
                                 <form id="logout-form" action="{{route('auth.logout')}}" method="POST"
@@ -76,7 +79,7 @@
                     </li>
                     @else
                         <li><a href="javascript:;" data-toggle="modal" data-target="#b-modal-login">登录</a></li>
-                        @endauth
+                    @endauth
             </ul>
         </div>
     </div>
@@ -97,17 +100,17 @@
             </div>
             <div class="col-xs-12 col-md-12 col-lg-12 b-login-row">
                 <ul class="row" style="margin-top: 20px;">
-                    <li class="col-xs-6 col-md-4 col-lg-4 b-login-img">
+                    <li style="margin: 5px 0px;"  class="col-xs-6 col-md-4 col-lg-4 b-login-img">
                         <a href="javascript:;" onclick="toLogin()"><img src="{{asset('/images/qq-login.png')}}"
-                                                                        class="img-responsive"
+                                                                        class=""
                                                                         alt="QQ登录"></a>
                     </li>
-                    <li class="col-xs-6 col-md-4 col-lg-4 b-login-img">
-                        <a href="javascript:;"><img src="{{asset('images/sina-login.png')}}" class="img-responsive"
+                    <li style="margin: 5px 0px;" class="col-xs-6 col-md-4 col-lg-4 b-login-img">
+                        <a href="javascript:;"><img src="{{asset('images/sina-login.png')}}" class=""
                                                     data-toggle="tooltip" alt="微博登录" title="正在申请接口中,暂时无法登录."></a>
                     </li>
-                    <li class="col-xs-6 col-md-4 col-lg-4 b-login-img">
-                        <a href="javascript:;"><img src="{{asset('images/github-login.jpg')}}" class="img-responsive"
+                    <li style="margin: 5px 0px;" class="col-xs-6 col-md-4 col-lg-4 b-login-img">
+                        <a href="javascript:;"><img src="{{asset('images/github-login.jpg')}}" class=""
                                                     data-toggle="tooltip" alt="github登录" title="正在申请接口中,暂时无法登录."></a>
                     </li>
                 </ul>

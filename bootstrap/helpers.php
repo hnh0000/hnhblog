@@ -34,51 +34,30 @@ function setting(string $key, $default = null)
     return isset($data[$key]) ? $data[$key] : $default;
 }
 
-/**
- * 把数组或者字符串转成可以使用 json_encode 的数据形式
- * @param $expression
- * @param null $return
- * @return string
- */
-function var_encode($expression, $return = null)
+
+// 判断是否为手机端
+function is_mobile()
 {
-    if ($return) {
+    $agent = strtolower($_SERVER['HTTP_USER_AGENT']);
+    $is_pc = (strpos($agent, 'windows nt')) ? true : false;
+    $is_mac = (strpos($agent, 'mac os')) ? true : false;
+    $is_iphone = (strpos($agent, 'iphone')) ? true : false;
+    $is_android = (strpos($agent, 'android')) ? true : false;
+    $is_ipad = (strpos($agent, 'ipad')) ? true : false;
 
-        if (is_string($expression)) {
-            return $expression;
-        }
-        if (is_array($expression)) {
-            return var_array($expression);
-        }
-
-    } else {
-        if (is_string($expression)) {
-            echo $expression;
-        }
-        if (is_array($expression)) {
-            echo var_array($expression);
-        }
+    if($is_iphone){
+        return  true;
     }
-
-}
-
-
-/**
- * 数组转成 ["k"=>"value"] 的字符形式
- * @param $array
- * @return string
- */
-function var_array($array)
-{
-    $str = '['. PHP_EOL;
-    foreach ($array as $k => $v) {
-        if (is_array($v)) {
-            $str .= var_array($v);
-        } else {
-            $str .= '"' . $k . '"' . '=>' . '"' . $v . '"' . ',' .PHP_EOL;
-        }
+    if($is_android){
+        return  true;
     }
-//    $str = rtrim($str,',');
-    $str .= ']';
-    return $str;
+    if($is_ipad){
+        return  true;
+    }
+    if($is_pc){
+        return  false;
+    }
+    if($is_mac){
+        return  false;
+    }
 }

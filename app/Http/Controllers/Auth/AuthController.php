@@ -15,12 +15,18 @@ class AuthController extends Controller
     public function __construct()
     {
         $this->middleware('auth')->only('logout');
-        $this->middleware('guest')->only(['login','info']);
+        $this->middleware('guest')->only(['login', 'info']);
     }
 
     // 登录页面
     public function login(Qq $qq, $type = 'qq')
     {
+        // 由于开发环境，不方便第三方登录，所以直接登录第一个账号
+        if (config('app.env') == 'local') {
+            Auth::loginUsingId(1);
+            return view('auth.succeed');
+        }
+
         $type == 'qq' ? $qq->qqLogin() : '';
     }
 
@@ -30,7 +36,7 @@ class AuthController extends Controller
      * @param User $user
      * @param string $type
      */
-    public function info(Request $request,Qq $qq, User $user, $type = 'qq')
+    public function info(Request $request, Qq $qq, User $user, $type = 'qq')
     {
         // csrf 验证
         abort_if($request->state !== \session()->token(), 403);
@@ -43,7 +49,7 @@ class AuthController extends Controller
         $data['sex'] = $qq->sex();
 
         // 登录账号
-        $user->login($open_id,$data);
+        $user->login($open_id, $data);
 
         return view('auth.succeed');
     }
@@ -55,6 +61,6 @@ class AuthController extends Controller
     public function logout()
     {
         Auth::logout();
-        return redirect()->route('index')->with('message','已成功退出');
+        return redirect()->route('index')->with('message', '已成功退出');
     }
 }

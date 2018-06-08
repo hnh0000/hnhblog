@@ -8813,8 +8813,13 @@ li {
   list-style-type: none;
 }
 
-nav .navbar-nav > li > a {
+nav .container .navbar-nav > li > a {
   line-height: 28px;
+}
+
+nav .container .navbar-right .dropdown ul li a {
+  padding-top: 8px;
+  padding-bottom: 8px;
 }
 
 footer {

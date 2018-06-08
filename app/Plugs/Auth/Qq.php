@@ -34,7 +34,8 @@ class Qq
     public function qqLogin()
     {
         $token = csrf_token();
-        $url = "https://graph.qq.com/oauth2.0/authorize?response_type=code&client_id={$this->appid}&redirect_uri={$this->callback}&state={$token}&scope={$this->scope}";
+        $display = is_mobile() ? 'mobile' : 'no';
+        $url = "https://graph.qq.com/oauth2.0/authorize?response_type=code&client_id={$this->appid}&redirect_uri={$this->callback}&state={$token}&scope={$this->scope}&display=mobile}";
         Header("Location: $url");
     }
 

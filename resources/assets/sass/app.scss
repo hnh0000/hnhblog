@@ -34,9 +34,22 @@ li {
 
 // 导航
 nav {
-  .navbar-nav > li > a {
-    line-height: 28px;
+  .container {
+    .navbar-nav > li > a {
+      line-height: 28px;
+    }
+
+    .navbar-right .dropdown ul li {
+      a {
+        padding-top: 8px;
+        padding-bottom: 8px;
+      }
+    }
   }
+}
+
+head {
+
 }
 
 // 页脚

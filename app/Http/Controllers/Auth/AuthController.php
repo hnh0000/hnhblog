@@ -40,10 +40,9 @@ class AuthController extends Controller
 
         // 获取用户信息
         $info = $user->info();
-
         $data['name'] = $user->name();
         $data['avatar'] = $user->avatar();
-        $data['name'] = $user->sex();
+        $data['sex'] = $user->sex();
 
         // 登录账号
         $user->login($open_id,$data);

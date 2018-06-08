@@ -73,6 +73,10 @@ trait Qq
     // 获取用户 openid
     public function openId($accessToken = null, $code = null)
     {
+        if ($this->openid !== null) {
+            return $this->openid;
+        }
+
         $accessToken = $accessToken ?: ($this->accessToken ?: $this->accessTokens($code)['access_token']);
         $url = "https://graph.qq.com/oauth2.0/me?access_token={$accessToken}";
         $res = trim(file_get_contents($url));
@@ -98,7 +102,8 @@ trait Qq
     }
 
     // 获取性别
-    public function sex() {
+    public function sex()
+    {
         return $this->info()['gender'];
     }
 

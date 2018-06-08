@@ -17,6 +17,7 @@ Route::resource('tags','TagController')->only('show');
 
 // Auth登录
 Route::get('/login/{type?}','Auth\AuthController@login')->name('auth.login');
+Route::post('/logout','Auth\AuthController@logout')->name('auth.logout');
 // 登录成功后的回调
 Route::get('auth/info/{type?}','Auth\AuthController@info')->name('auth.info');
 

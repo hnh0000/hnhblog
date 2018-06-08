@@ -5,10 +5,17 @@ namespace App\Http\Controllers\Auth;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
 class AuthController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth')->only('logout');
+        $this->middleware('guest')->only(['login','info']);
+    }
 
     // 登录页面
     public function login(User $user,Request $request, $type = 'qq')
@@ -16,7 +23,12 @@ class AuthController extends Controller
         $type == 'qq' ? $user->qqLogin() : '';
     }
 
-    // 登录成功后的回调，用来获取用户的信息
+    /**
+     * 授权登录后，获取用户信息
+     * @param Request $request
+     * @param User $user
+     * @param string $type
+     */
     public function info(Request $request, User $user, $type = 'qq')
     {
         // csrf 验证
@@ -29,8 +41,23 @@ class AuthController extends Controller
         // 获取用户信息
         $info = $user->info();
 
-        dd($info);
+        $data['name'] = $user->name();
+        $data['avatar'] = $user->avatar();
+        $data['name'] = $user->sex();
+
+        // 登录账号
+        $user->login($open_id,$data);
+
+        return view('auth.succeed');
     }
 
-
+    /**
+     * 退出登录
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function logout()
+    {
+        Auth::logout();
+        return redirect()->route('index')->with('message','已成功退出');
+    }
 }

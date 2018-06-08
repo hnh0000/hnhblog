@@ -18,6 +18,8 @@ return [
         'passwords' => 'users',
     ],
 
+
+
     'qq' => [
         'appid' => env('AUTH_QQ_APPID'),
         'appkey' => env('AUTH_QQ_APPKEY'),

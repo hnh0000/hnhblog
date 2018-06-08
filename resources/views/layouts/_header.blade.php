@@ -31,33 +31,47 @@
 
             {{--右边的导航条--}}
             <ul class="nav navbar-nav navbar-right">
-                @auth('admin')
+                @auth
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" style="" data-toggle="dropdown" role="button"
                            aria-expanded="false" aria-haspopup="true" v-pre>
-                            <img src="http://www.jq22.com/demo/jQueryComment201711092334/images/img.jpg"
-                                 class="img-circle" width="25" height="25">
-                            {{Auth::guard('admin')->user()->username}} <span class="caret"></span>
+                            <img src="{{Auth::user()->avatar}}"
+                                 class="img-circle" width="25" height="25" title="{{Auth::user()->name}}">
+                            {{Auth::user()->name}} <span class="caret"></span>
                         </a>
 
                         <ul class="dropdown-menu">
+
+                            @isset(Auth::user()->admin_user_id)
+                                <li>
+                                    <a href="{{url(config('admin.route.prefix'))}}">进入后台</a>
+                                </li>
+                            @endisset
+
                             <li>
-                                <a href="{{url(config('admin.route.prefix'))}}">进入后台</a>
-                            </li>
-                            <li>
-                                <a href="{{ app(\App\Plugs\User::class)->logoutLink() }}">
-                                    Logout
+                                <a href="">
+                                    个人中心
                                 </a>
-                                {{--<a href="{{ app(\App\Plugs\User::class)->logoutLink() }}"--}}
-                                {{--onclick="event.preventDefault();--}}
-                                {{--document.getElementById('logout-form').submit();">--}}
-                                {{--Logout--}}
-                                {{--</a>--}}
-                                <form id="logout-form" action="" method="POST"
+                            </li>
+
+                            <li>
+                                <a href="">
+                                    编辑资料
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="javascript:;"
+                                   onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();">
+                                    退出
+                                </a>
+                                <form id="logout-form" action="{{route('auth.logout')}}" method="POST"
                                       style="display: none;">
                                     {{csrf_field()}}
                                 </form>
                             </li>
+
                         </ul>
                     </li>
                     @else

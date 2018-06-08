@@ -10,8 +10,6 @@ class User extends Authenticatable
 {
     use Notifiable;
 
-    // QQ登录类
-    use \App\Models\User\Qq;
 
     protected $fillable = [
         'name', 'email', 'avatar', 'type'

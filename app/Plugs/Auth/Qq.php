@@ -1,21 +1,22 @@
 <?php
 /**
  * Created by hnh.
- * Date: 2018/6/6
- * Time: 10:59
+ * Date: 2018/6/9
+ * Time: 18:59
  * Email: 1123416584@qq.com
  * Blog: blog.hnh117.com
  */
 
-namespace App\Models\User;
+namespace App\Plugs\Auth;
 
-trait Qq
+class Qq
 {
     private $appid = null;
     private $appkey = null;
     private $callback = null;
     private $scope = null;
     private $accessToken = null;
+    private $accessTokens = null;
     private $openid = null;
     private $info = null; //用户信息
 
@@ -37,9 +38,13 @@ trait Qq
         Header("Location: $url");
     }
 
-    // 获取accessToken的所有信息
+    // 通过code,获取accessToken的所有信息
     public function accessTokens(string $code = null)
     {
+        if (isset($this->accessTokens)) {
+            return $this->accessTokens;
+        }
+
         $code = $code ?: $_GET['code'];
         $url = "https://graph.qq.com/oauth2.0/token?grant_type=authorization_code&client_id={$this->appid}&client_secret={$this->appkey}&code={$code}&redirect_uri={$this->callback}";
         $res = file_get_contents($url);
@@ -52,22 +57,19 @@ trait Qq
                 $info[$ite[0]] = $ite[1];
             }
             $this->accessToken = $info['access_token'];
+            $this->accessTokens = $info;
         }
         return $info;
     }
 
-    // accessToken续期
-    public function refreshToken(string $refresh_token)
+    // 获取accessToken
+    public function accessToken()
     {
-        $url = "https://graph.qq.com/oauth2.0/token?grant_type=refresh_token&client_id={$this->appid}&client_secret={$this->appkey}&refresh_token={$refresh_token}";
-        $res = file_get_contents($url);
-        // 请求错误
-        if (strpos($res, 'callback') === 0) {
-            $info = false;
-        } else {
-            $info = explode('&', $res);
+        if (isset($this->accessToken)) {
+            return $this->accessToken;
         }
-        return $info;
+        $this->accessTokens();
+        return $this->accessToken;
     }
 
     // 获取用户 openid
@@ -77,7 +79,7 @@ trait Qq
             return $this->openid;
         }
 
-        $accessToken = $accessToken ?: ($this->accessToken ?: $this->accessTokens($code)['access_token']);
+        $accessToken = $this->accessToken();
         $url = "https://graph.qq.com/oauth2.0/me?access_token={$accessToken}";
         $res = trim(file_get_contents($url));
         $length = strpos($res, ');');
@@ -104,20 +106,29 @@ trait Qq
     // 获取性别
     public function sex()
     {
+        if ($this->info === null) {
+            $this->info();
+        }
+
         return $this->info()['gender'];
     }
 
     // 获取昵称
     public function name()
     {
+        if ($this->info === null) {
+            $this->info();
+        }
+
         return $this->info()['nickname'];
     }
 
     // 获取 40x40 头像
     public function avatar()
     {
+        if ($this->info === null) {
+            $this->info();
+        }
         return $this->info()['figureurl_qq_1'];
     }
-
-
 }

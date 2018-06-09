@@ -2,21 +2,26 @@
     <div id="title" role="row">
 
         <h2 class="text-center">{{ $article->title }}</h2>
-        <div class="col-md-12 col-xs-12 col-sm-12" role="row"  style="padding-bottom: 5px;">
+        <div class="col-md-12 col-xs-12 col-sm-12" role="row" style="padding-bottom: 5px;">
             <div class="col-md-3 col-sm-6 col-xs-6" data-toggle="tooltip">
                 <span aria-hidden="true" class="glyphicon-list glyphicon"></span> {{ $article->category->name }}
             </div>
             @php
-            $tags = implode( ',', $article->tags()->pluck('name')->toArray());
+                $tags = implode( ',', $article->tags()->pluck('name')->toArray());
             @endphp
-            <div class="col-md-3 col-sm-6 col-xs-6 text-overflow" data-toggle="tooltip" data-placement="top" title="{{$tags}}">
+            <div class="col-md-3 col-sm-6 col-xs-6 text-overflow" data-toggle="tooltip" data-placement="top"
+                 title="{{'标签:'.$tags}}">
                 <span aria-hidden="true" class="glyphicon-tag glyphicon"></span> {{ $tags }}
             </div>
-            <div class="col-md-3 col-sm-6 col-xs-6" data-toggle="tooltip" data-placement="top" title="创建于{{$article->created_at}}">
-                <span aria-hidden="true" class="glyphicon-calendar glyphicon"></span> {{substr($article->created_at,0,10)}}
+            <div class="col-md-3 col-sm-6 col-xs-6" data-toggle="tooltip" data-placement="top"
+                 title="创建于:{{$article->created_at}}">
+                <span aria-hidden="true"
+                      class="glyphicon-calendar glyphicon"></span> {{substr($article->created_at,0,10)}}
             </div>
-            <div class="col-md-3 col-sm-5 col-xs-6" data-toggle="tooltip" data-placement="top" title="更新于{{$article->updated_at}}">
-                <span aria-hidden="true" class="glyphicon glyphicon-pencil"></span> {{ substr($article->updated_at,0,10) }}
+            <div class="col-md-3 col-sm-5 col-xs-6" data-toggle="tooltip" data-placement="top"
+                 title="更新于:{{$article->updated_at}}">
+                <span aria-hidden="true"
+                      class="glyphicon glyphicon-pencil"></span> {{ substr($article->updated_at,0,10) }}
             </div>
         </div>
     </div>
@@ -27,45 +32,40 @@
         {!! $article->content  !!}
     </div>
 
-    <div class="col-md-12 col-sm-12 col-xs-12" role="row">
+    <div class="col-md-12 col-sm-12 col-xs-12 belong" role="row">
         <strong>
             回复数量:2
             /
             阅读数量:{{$article->watch}}
         </strong>
-        <p class="pull-right" style="cursor: pointer;"><i class="glyphicon glyphicon-heart" style="color: #e8e8e8;"></i> 333</p>
+        <p class="pull-right {{active_class($article->isLike(true))}}" onclick="like($(this))" data-toggle="tooltip"
+           data-placement="top"
+           title="">
+            <i class="glyphicon glyphicon-heart"></i> <span>{{$article->likes()->count()}}</span>
+        </p>
     </div>
 
 </article>
 
-{{--评论区--}}
-<div class="shade-1 col-md-12 col-sm-12 col-xs-12 chunk comments">
-
-
-    <div class="input" role="row">
-        <textarea class="form-control" rows="2" placeholder="很抱歉，暂时不支持 markdown 语法..." style="overflow: hidden; word-wrap: break-word; resize: horizontal; height: 162px;" id="reply_content" name="body" cols="50" data-emojiable="converted" data-id="c4bab755-a391-48c2-a45e-619746e5960f" data-type="original-input"></textarea>
-        <p class="pull-right btn btn-info" style="margin-top: 10px;">提交</p>
-    </div>
-
-    <hr>
-    <div class="comment">
-        <div class="pull-left">
-            <img src="http://www.jq22.com/demo/jQueryComment201711092334/images/img.jpg" class="img-circle img-responsive" width="80" height="80">
-        </div>
-        <div class="comment_content">
-            <p class="user_name">
-                王尼玛
-            </p>
-            <p class="release_time text-muted" style=>
-                <span class="text-muted">#1</span>&nbsp;
-
-                <i class="glyphicon glyphicon-time"></i>
-                3个月前
-            </p>
-            <p class="com">
-                2018年5月25日18:05:062018年5月25日18:05:062018年5月25日18:05:062018年5月25日18:05:062018年5月25日18:05:062018年5月25日18:05:06
-            </p>
-        </div>
-    </div>
-
-</div>
+@push('scripts')
+    <script>
+        function like(jqthis) {
+            must_loign(function (jqthis) {
+                if (jqthis.hasClass('ban')) {
+                    return false;
+                }
+                $par = jqthis.hasClass('active') ? {'_method': 'DELETE'} : {};// 判断是点赞还是取消点赞
+                $msg = jqthis.hasClass('active') ? '点赞' : '取消点赞';
+                $url = jqthis.hasClass('active') ? '{{route('articles.dislike',$article->id)}}' : '{{route('articles.like',$article->id)}}'
+                jqthis.attr('title', '操作正在执行中...');
+                jqthis.addClass('ban');
+                $.post($url, $par, function (response) {
+                    jqthis.toggleClass('active');
+                    jqthis.find('span').text(response.count);
+                    jqthis.attr('title', $msg);
+                    jqthis.removeClass('ban');
+                }, 'json');
+            }, jqthis);
+        }
+    </script>
+@endpush

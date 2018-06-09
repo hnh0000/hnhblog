@@ -5,12 +5,13 @@
 Route::get('/', 'PageController@index')->name('index');
 
 
-// 文章上传图片接口
-Route::post('articles/content_upload','ArticleController@contentUpload')->name('articles.content_upload');
 
 
 // 文章，分类，标签
-Route::resource('articles','ArticleController')->except('index');
+Route::post('articles/content_upload','ArticleController@contentUpload')->name('articles.content_upload');// 文章上传图片接口
+Route::post('articles/{article}/like','ArticleController@like')->name('articles.like');// 点赞
+Route::delete('articles/{article}/dislike','ArticleController@dislike')->name('articles.dislike');// 取消赞
+Route::resource('articles','ArticleController')->only('show');
 Route::resource('categories','CategoryController')->only('show');
 Route::resource('tags','TagController')->only('show');
 

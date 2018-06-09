@@ -101,7 +101,32 @@ footer {
 
 // 文章详情页
 #app.articles-show-page {
+  //文章内容
+  article {
+    .belong {
+      -moz-user-select:none;/*火狐*/
+      -webkit-user-select:none;/*webkit浏览器*/
+      -ms-user-select:none;/*IE10*/
+      -khtml-user-select:none;/*早期浏览器*/
+      user-select:none;
+      p{
+        cursor: pointer;
+        i {
+          color: #F2F2F2;
+        }
+      }
+      p.active {
+        i {
+          color: #ea1328;
+        }
+      }
+      p.ban {
+        cursor: wait;
+      }
+    }
+  }
 
+  // 评论区
   .comments {
 
     .input {

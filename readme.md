@@ -1,5 +1,5 @@
 # HnhBlog
-## 基于Laravel5+bootstrap3开发的个人博客.
+## 基于Laravel5.5 And Bootstrap3开发的个人博客.
 
 
 ## 依赖包

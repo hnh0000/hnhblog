@@ -66,7 +66,7 @@
                                 <a href="javascript:;"
                                    onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();">
-                                    <i class="glyphicon glyphicon-log-out"></i>&nbsp;
+                                    <i class="glyphicon glyphicon"></i>
                                     退出
                                 </a>
                                 <form id="logout-form" action="{{route('auth.logout')}}" method="POST"
@@ -87,7 +87,7 @@
 
 
 <!-- 点击登录的模态窗 -->
-<div class="modal fade" id="b-modal-login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
+<div class="modal fade" data-backdrop="static" id="b-modal-login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
      style="display: none;">
     <div class="modal-dialog">
         <div class="modal-content row">

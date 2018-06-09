@@ -9,9 +9,12 @@
     <title>@yield('title', setting('title'))</title>
     <!-- Styles -->
     <link href="{{ mix('assets/css/app.css') }}" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/sweetalert/1.1.3/sweetalert.min.css" rel="stylesheet">
+
     <meta name="keywords" content="@yield('keywords',setting('keywords'))"/>
     <meta name="description" content="@yield('description',setting('description'))"/>
     <link rel="icon" href="{{setting('logo')}}" type="image/x-icon"/>
+
     @stack('styles')
 </head>
 <body>
@@ -23,8 +26,14 @@
 
 <!-- Scripts -->
 <script src="{{ mix('assets/js/app.js') }}"></script>
+<script src="https://cdn.bootcss.com/sweetalert/1.1.3/sweetalert-dev.min.js"></script>
 <script>
     $(function () { $("[data-toggle='tooltip']").tooltip(); });
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
 </script>
 
 @stack('scripts')

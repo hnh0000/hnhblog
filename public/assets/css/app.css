@@ -8869,6 +8869,33 @@ footer .page-header {
   margin: 30px 0 20px;
 }
 
+#app.articles-show-page article .belong {
+  -moz-user-select: none;
+  /*火狐*/
+  -webkit-user-select: none;
+  /*webkit浏览器*/
+  -ms-user-select: none;
+  /*IE10*/
+  /*早期浏览器*/
+  user-select: none;
+}
+
+#app.articles-show-page article .belong p {
+  cursor: pointer;
+}
+
+#app.articles-show-page article .belong p i {
+  color: #F2F2F2;
+}
+
+#app.articles-show-page article .belong p.active i {
+  color: #ea1328;
+}
+
+#app.articles-show-page article .belong p.ban {
+  cursor: wait;
+}
+
 #app.articles-show-page .comments .input {
   margin-top: 20px;
   overflow: hidden;

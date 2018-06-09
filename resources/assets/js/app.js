@@ -1,4 +1,3 @@
-
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -25,3 +24,33 @@ const app = new Vue({
     el: '#app'
 });
 */
+
+
+// 判断是否登录
+$userInfo = $('nav .navbar-right .dropdown');
+window.is_login = function () {
+    return $userInfo.length > 0;
+};
+
+/**
+ *
+ * @param callback 登录成功后的回调函数
+ */
+window.must_loign = function (callback,param) {
+    if (is_login()) {
+        callback(param);
+    } else {
+        swal({
+                title: "请先登录",
+                text: "",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonText: "登录",
+                closeOnConfirm: false
+            },
+            function () {
+                swal.close();
+                $('#b-modal-login').modal('show')
+            });
+    }
+}

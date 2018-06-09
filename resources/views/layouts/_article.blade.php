@@ -42,8 +42,7 @@
             </div>
 
             <div role="row" class="col-md-12 col-xs-12 col-sm-12">
-                <a href=" {{ route('articles.show',$article->id) }} " class="btn btn-default pull-right btn-sm"><span
-                            class="glyphicon glyphicon-hand-right"></span> 查看全文</a>
+                <a href=" {{ route('articles.show',$article->id) }} " class="btn btn-default pull-right btn-sm">查看全文</a>
             </div>
 
         </article>

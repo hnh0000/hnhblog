@@ -9,7 +9,10 @@
     <title>@yield('title', setting('title'))</title>
     <!-- Styles -->
     <link href="{{ mix('assets/css/app.css') }}" rel="stylesheet">
+    {{--cdn--}}
     <link href="https://cdn.bootcss.com/sweetalert/1.1.3/sweetalert.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/font-awesome-animation/0.2.1/font-awesome-animation.css" rel="stylesheet">
 
     <meta name="keywords" content="@yield('keywords',setting('keywords'))"/>
     <meta name="description" content="@yield('description',setting('description'))"/>

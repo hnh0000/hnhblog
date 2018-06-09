@@ -18,3 +18,4 @@
 名称 | 描述
  ---|---
  [simplemde](https://simplemde.com/) | markdown编辑器
+ [Prism](https://segmentfault.com/a/1190000009122617) | 代码语法高亮插件

@@ -8759,10 +8759,6 @@ button.close {
   content: normal;
 }
 
-/*
- 自己定义的一个css类文件
- */
-
 .shade-1 {
   -webkit-box-shadow: 0 1px 2px 0 #E2E2E2;
           box-shadow: 0 1px 2px 0 #E2E2E2;
@@ -8786,6 +8782,17 @@ button.close {
 .zeroed {
   margin: 0 !important;
   padding: 0 !important;
+}
+
+.unselect {
+  -moz-user-select: none;
+  /*火狐*/
+  -webkit-user-select: none;
+  /*webkit浏览器*/
+  -ms-user-select: none;
+  /*IE10*/
+  /*早期浏览器*/
+  user-select: none;
 }
 
 section,
@@ -8884,12 +8891,8 @@ footer .page-header {
   cursor: pointer;
 }
 
-#app.articles-show-page article .belong p i {
-  color: #F2F2F2;
-}
-
 #app.articles-show-page article .belong p.active i {
-  color: #ea1328;
+  color: #ae155b;
 }
 
 #app.articles-show-page article .belong p.ban {

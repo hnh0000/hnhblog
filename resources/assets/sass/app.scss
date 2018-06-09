@@ -111,13 +111,10 @@ footer {
       user-select:none;
       p{
         cursor: pointer;
-        i {
-          color: #F2F2F2;
-        }
       }
       p.active {
         i {
-          color: #ea1328;
+          color: $support;
         }
       }
       p.ban {

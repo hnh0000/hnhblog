@@ -41,7 +41,7 @@
         <p class="pull-right {{active_class($article->isLike(true))}}" onclick="like($(this))" data-toggle="tooltip"
            data-placement="top"
            title="">
-            <i class="glyphicon glyphicon-heart"></i> <span>{{$article->likes()->count()}}</span>
+            <i class="fa fa-thumbs-o-up faa-bounce"></i> <span>{{$article->count_like}}</span>
         </p>
     </div>
 
@@ -57,8 +57,14 @@
                 $par = jqthis.hasClass('active') ? {'_method': 'DELETE'} : {};// 判断是点赞还是取消点赞
                 $msg = jqthis.hasClass('active') ? '点赞' : '取消点赞';
                 $url = jqthis.hasClass('active') ? '{{route('articles.dislike',$article->id)}}' : '{{route('articles.like',$article->id)}}'
+
                 jqthis.attr('title', '操作正在执行中...');
                 jqthis.addClass('ban');
+                jqthis.find('i').addClass('animated');
+                setTimeout(function() {
+                    jqthis.find('i').removeClass('animated');
+                },1500);
+
                 $.post($url, $par, function (response) {
                     jqthis.toggleClass('active');
                     jqthis.find('span').text(response.count);

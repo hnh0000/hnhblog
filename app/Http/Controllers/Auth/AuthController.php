@@ -21,8 +21,8 @@ class AuthController extends Controller
     // 登录页面
     public function login(Qq $qq, $type = 'qq')
     {
-        // 由于开发环境，不方便第三方登录，所以直接登录第一个账号
-        if (config('app.env') != 'production ') {
+        // 开发与测试环境，不方便第三方登录，所以直接登录第一个账号
+        if (config('app.env') != 'production') {
             Auth::loginUsingId(1);
             return view('auth.succeed');
         }

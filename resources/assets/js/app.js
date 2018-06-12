@@ -8,6 +8,8 @@ require('./bootstrap');
 
 require('./paste-upload-image');
 
+require('../vendor/prism/prism');
+
 
 window.Vue = require('vue');
 
@@ -36,7 +38,7 @@ window.is_login = function () {
  *
  * @param callback 登录成功后的回调函数
  */
-window.must_loign = function (callback,param) {
+window.must_loign = function (callback, param) {
     if (is_login()) {
         callback(param);
     } else {
@@ -54,3 +56,19 @@ window.must_loign = function (callback,param) {
             });
     }
 }
+
+
+window.ajax_error = function (response) {
+    swal({
+            title: "出了点问题.",
+            text: response.responseJSON.message,
+            type: "error",
+            showCancelButton: false,
+            confirmButtonText: "确定",
+            closeOnConfirm: false,
+        },
+        function () {
+            window.location.reload();
+            swal.close();
+        });
+};

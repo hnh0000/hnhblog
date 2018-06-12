@@ -38,7 +38,7 @@
             /
             阅读数量:{{$article->watch}}
         </strong>
-        <p class="pull-right {{active_class($article->isLike(true))}}" onclick="like($(this))" data-toggle="tooltip"
+        <p class="pull-right like {{active_class($article->isLike(true))}}" onclick="like($(this))" data-toggle="tooltip"
            data-placement="top"
            title="">
             <i class="fa fa-thumbs-o-up faa-bounce"></i> <span>{{$article->count_like}}</span>

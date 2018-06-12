@@ -13,6 +13,7 @@
     <link href="https://cdn.bootcss.com/sweetalert/1.1.3/sweetalert.min.css" rel="stylesheet">
     <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
     <link href="https://cdn.bootcss.com/font-awesome-animation/0.2.1/font-awesome-animation.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/prism/9000.0.1/plugins/autolinker/prism-autolinker.css" rel="stylesheet">
 
     <meta name="keywords" content="@yield('keywords',setting('keywords'))"/>
     <meta name="description" content="@yield('description',setting('description'))"/>
@@ -30,6 +31,8 @@
 <!-- Scripts -->
 <script src="{{ mix('assets/js/app.js') }}"></script>
 <script src="https://cdn.bootcss.com/sweetalert/1.1.3/sweetalert-dev.min.js"></script>
+<script src="https://cdn.bootcss.com/showdown/1.8.6/showdown.min.js"></script>
+<script src="https://cdn.bootcss.com/prism/9000.0.1/components/prism-actionscript.js"></script>
 <script>
     $(function () { $("[data-toggle='tooltip']").tooltip(); });
     $.ajaxSetup({

@@ -16,7 +16,7 @@
                     <div class="comment_body">
 
                         {{--单条评论 Begin--}}
-                        <div class="comment" id="reply_l#1" data-pid="1" data-floor_name="#1" data-reply_name="洪乃火">
+                        <div class="comment" id="reply_l#1" data-pid="10" data-floor_name="1" data-reply_name="洪乃火">
                             <div class="pull-left">
                                 <img src="http://www.jq22.com/demo/jQueryComment201711092334/images/img.jpg"
                                      class="img-circle img-responsive" width="80" height="80">
@@ -32,7 +32,7 @@
                                         <i class="glyphicon glyphicon-time"></i>
                                         3年前
                                     </span>
-                                    <span hidden class="pull-right delete delete_reply" title="删除">
+                                    <span  class="pull-right delete delete_reply" title="删除">
                                         <i class="fa fa-times-circle"></i>
                                     </span>
                                     <span class="pull-right reply" title="回复">
@@ -55,10 +55,10 @@
                                     <p>
                                         <a href="">洪乃火</a> 回复 <a href="">6666</a> :
                                         <span>此处是内容</span>
-                                        <span hidden class="pull-right delete delete_reply" data-role="child"
+                                        <span  class="pull-right delete delete_reply" data-role="child"
                                               title="删除"><i
                                                     class="fa fa-times-circle"></i></span>
-                                        <span hidden class="pull-right reply" title="回复" data-role="child"><i
+                                        <span  class="pull-right reply" title="回复" data-role="child"><i
                                                     class="fa fa-reply"></i></span>
                                     </p>
                                 </div>
@@ -67,10 +67,10 @@
                                     <p>
                                         <a href="">666</a> 回复 <a href="">洪乃火</a> :
                                         <span>此处是内容</span>
-                                        <span hidden class="pull-right delete delete_reply" data-role="child"
+                                        <span  class="pull-right delete delete_reply" data-role="child"
                                               title="删除"><i
                                                     class="fa fa-times-circle"></i></span>
-                                        <span hidden class="pull-right reply" title="回复" data-role="child"><i
+                                        <span  class="pull-right reply" title="回复" data-role="child"><i
                                                     class="fa fa-reply"></i></span>
                                     </p>
                                 </div>
@@ -91,9 +91,9 @@
                             <button type="button" class="close" title="取消"><span
                                         aria-hidden="true">&times;</span></button>
                             <strong>在</strong>
-                            <a href="#reply_l1" class="floor_name">#1</a>
+                            <a href="" class="floor_name"></a>
                             <strong>回复于</strong>
-                            <a href="#reply_l1_1" class="reply_name">凉人炎</a>
+                            <a href="" class="reply_name"></a>
                         </div>
                         {{--回复对象 End--}}
                         <input type="hidden" name="p_id">
@@ -139,22 +139,28 @@
             if ($textarea.val() == '') {
                 return false;
             }
+            var $floor_serial = $('.comment_body>.comment:last').data('floor_name'); // 楼层昵称
+            var new_floor_serial = $floor_serial+1;// 楼层号
+            var new_floor_name = 'reply_l#' + new_floor_serial; // 新回复的楼层好
+            var content = $textarea.val();
+            var pid = $('input[name="p_id"]').val(),rid =  $('input[name="r_id"]').val();// 回复楼层所属id,回复对象id
+            var comment_id = 10;
             if ($('#reply_info').is(":hidden")) { // 直接评论，不是回复某个评论
-                var $html = '<div class="comment" id="reply_l#1" data-pid="1" data-floor_name="#1" data-reply_name="洪乃火">\n' +
+                var $html = '<div class="comment" id="'+new_floor_name+'" data-pid="'+ pid +'" data-floor_name="'+ new_floor_serial +'" data-reply_name="'+ user.name +'">\n' +
                     '                        <div class="pull-left">\n' +
                     '                            <img src="http://www.jq22.com/demo/jQueryComment201711092334/images/img.jpg"\n' +
                     '                                 class="img-circle img-responsive" width="80" height="80">\n' +
                     '                        </div>\n' +
                     '                        <div class="comment_content">\n' +
                     '                            <p class="user_name">\n' +
-                    '                                <a href="" style="color: #555555;">王尼玛</a>\n' +
+                    '                                <a href="" style="color: #555555;">'+ user.name +'</a>\n' +
                     '                            </p>\n' +
                     '                            {{--点赞，回复，删除 Begin--}}\n' +
                     '                            <p class="release_time text-muted" style=>\n' +
-                    '                                <span class="text-muted">#1</span>&nbsp;\n' +
+                    '                                <span class="text-muted">#'+ new_floor_serial +'</span>&nbsp;\n' +
                     '                                <span>\n' +
                     '                                    <i class="glyphicon glyphicon-time"></i>\n' +
-                    '                                    3年前\n' +
+                    '                                    刚刚\n' +
                     '                                </span>\n' +
                     '                                <span hidden class="pull-right delete delete_reply" title="删除">\n' +
                     '                                    <i class="fa fa-times-circle"></i>\n' +
@@ -164,62 +170,41 @@
                     '                                </span>\n' +
                     '                                <span class="pull-right like unselect like" onclick="like($(this))" title="点赞">\n' +
                     '                                    <i class="fa fa-thumbs-o-up faa-bounce"></i>\n' +
-                    '                                    <em>2</em>\n' +
+                    '                                    <em>0</em>\n' +
                     '                                </span>\n' +
                     '                            </p>\n' +
                     '                            {{--点赞，回复，删除 End--}}\n' +
-                    '                            <p class="com">\n' +
-                    '                                我是一个评论，我是评论，我是评论\n' +
+                    '                            <p class="com">\n' + content +
                     '                            </p>\n' +
                     '                        </div>\n' +
-                    '                        {{--子评论 Begin--}}\n' +
-                    '                        <div class="child_comment">\n' +
-                    '                            {{--单条子评论 Begin--}}\n' +
-                    '                            <div class="child_comment_content" id="reply_l#1_1" data-rid="2" data-name="洪乃火">\n' +
-                    '                                <p>\n' +
-                    '                                    <a href="">洪乃火</a> 回复 <a href="">6666</a> :\n' +
-                    '                                    <span>此处是内容</span>\n' +
-                    '                                    <span hidden class="pull-right delete delete_reply" data-role="child" title="删除"><i\n' +
-                    '                                                class="fa fa-times-circle"></i></span>\n' +
-                    '                                    <span hidden class="pull-right reply" title="回复" data-role="child"><i\n' +
-                    '                                                class="fa fa-reply"></i></span>\n' +
-                    '                                </p>\n' +
-                    '                            </div>\n' +
-                    '\n' +
-                    '                            <div class="child_comment_content" id="reply_l#1_2" data-rid="22" data-name="666">\n' +
-                    '                                <p>\n' +
-                    '                                    <a href="">666</a> 回复 <a href="">洪乃火</a> :\n' +
-                    '                                    <span>此处是内容</span>\n' +
-                    '                                    <span hidden class="pull-right delete delete_reply" data-role="child" title="删除"><i\n' +
-                    '                                                class="fa fa-times-circle"></i></span>\n' +
-                    '                                    <span hidden class="pull-right reply" title="回复" data-role="child"><i\n' +
-                    '                                                class="fa fa-reply"></i></span>\n' +
-                    '                                </p>\n' +
-                    '                            </div>\n' +
-                    '                            {{--单条子评论 End--}}\n' +
-                    '                        </div>\n' +
-                    '                        {{--子评论 End--}}\n' +
                     '                    </div>\n' +
                     '                    <h5 class="page-header"></h5>';
 
                 $('.comments .comment_body').append($html);
-            } else { // 追加到指定楼层下
-                $floor_ele = $('.input .alert .floor_name');// 回复楼层展示标签
-                $reply_ele = $('.input .alert .reply_name');// 回复对象展示标签
-                var $floor_name = $floor_ele.html();
-                var $reply_name = $reply_ele.html();
-                var $html = '<div class="child_comment_content" id="reply_l#1_1" data-rid="2" data-name="洪乃火">\n' +
+            } else {
+                // 抓取元素
+                var r_name = $('.reply_name').html();// 追加到指定楼层
+                var new_reply_id = 'reply_ll_' + Math.floor(Math.random()*1000);// 新id,方便锚链接跳转
+                var $reply_floor = $('.comment[data-floor_name="'+ $floor_serial +'"]'); // 回复楼层
+
+                // 没有子评论的时候
+                if ($reply_floor.find('.child_comment').length == 0) {
+                    $reply_floor.append('<div class="child_comment">\n' +
+                        '</div>\n');
+                }
+                var $html = '<div class="child_comment_content" id="'+ new_reply_id +'" data-rid="'+ comment_id +'" data-name="'+ user.name +'">\n' +
                     '                                    <p>\n' +
-                    '                                        <a href="">洪乃火</a> 回复 <a href="">6666</a> :\n' +
-                    '                                        <span>此处是内容</span>\n' +
-                    '                                        <span hidden class="pull-right delete delete_reply" data-role="child"\n' +
+                    '                                        <a href="">'+ user.name +'</a> 回复 <a href="">'+ r_name +'</a> :\n' +
+                    '                                        <span>'+ content +'</span>\n' +
+                    '                                        <span  class="pull-right delete delete_reply" data-role="child"\n' +
                     '                                              title="删除"><i\n' +
                     '                                                    class="fa fa-times-circle"></i></span>\n' +
-                    '                                        <span hidden class="pull-right reply" title="回复" data-role="child"><i\n' +
+                    '                                        <span  class="pull-right reply" title="回复" data-role="child"><i\n' +
                     '                                                    class="fa fa-reply"></i></span>\n' +
                     '                                    </p>\n' +
                     '                                </div>';
-                $('.comment[data-floor_name="'+ $floor_name +'"]').find('.child_comment').append($html);
+
+                $reply_floor.find('.child_comment').append($html);
                 $('.input .alert').slideUp(1000);
             }
             $textarea.val('');
@@ -236,7 +221,7 @@
             $ele = $jqthis.parents('.comment');
             p_id = $ele.data('pid');// 楼层所属id
             r_id = p_id;// 回复对象的id
-            floor_name = $ele.data('floor_name');// 楼层昵称
+            floor_name = '#' + $ele.data('floor_name');// 楼层昵称
             reply_name = $ele.data('reply_name');// 回复对象昵称
             pid = '#' + $ele.attr('id');// 楼层锚链接
             rid = pid; // 回复对象锚链接

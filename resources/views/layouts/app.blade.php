@@ -34,12 +34,21 @@
 <script src="https://cdn.bootcss.com/showdown/1.8.6/showdown.min.js"></script>
 <script src="https://cdn.bootcss.com/prism/9000.0.1/components/prism-actionscript.js"></script>
 <script>
-    $(function () { $("[data-toggle='tooltip']").tooltip(); });
+    $(function () {
+        $("[data-toggle='tooltip']").tooltip();
+    });
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
     });
+    // 用户基本信息
+    var user = {
+        'id': '1',
+        'name': '洪乃火',
+        'avatar': 'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=920097092,3819232665&fm=27&gp=0.jpg',
+        'sex': '男',
+    };
 </script>
 
 @stack('scripts')

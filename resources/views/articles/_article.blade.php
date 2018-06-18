@@ -28,8 +28,7 @@
 
     <h5 class="page-header"></h5>
 
-    <div class="content markdown col-md-12 col-xs-12 col-sm-12">
-        {!! $article->content  !!}
+    <div hidden class="content markdown col-md-12 col-xs-12 col-sm-12 markdown-auto" data-markdown="{{ $article->content  }}">
     </div>
 
     <div class="col-md-12 col-sm-12 col-xs-12 belong" role="row">

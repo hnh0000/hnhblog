@@ -99,7 +99,7 @@ class ArticleController extends Controller
                 return str_limit($text, 15);
             });
 
-            $grid->old_content('正文')->display(function ($text) {
+            $grid->content('正文')->display(function ($text) {
                 return str_limit($text, 80);
             });
 
@@ -150,7 +150,7 @@ class ArticleController extends Controller
                 'on' => ['value' => 1, 'text' => 'on'],
                 'off' => ['value' => 0, 'text' => 'off'],
             ];
-            $form->editor('old_content', '正文')->rules('required');
+            $form->editor('content', '正文')->rules('required');
             $form->switch('show', '显示')->default(1)->states($states);
 
             $form->display('created_at', 'Created At');

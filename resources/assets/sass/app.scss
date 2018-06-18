@@ -4,9 +4,10 @@
 @import "~bootstrap-sass/assets/stylesheets/bootstrap";
 // markdown
 @import "markdown";
+@import "../vendor/prism/prism.css";
 // class
 @import "class";
-@import "../vendor/prism/prism.css";
+
 
 section, article {
   background: white;

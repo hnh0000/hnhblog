@@ -32,7 +32,6 @@
 <script src="{{ mix('assets/js/app.js') }}"></script>
 <script src="https://cdn.bootcss.com/sweetalert/1.1.3/sweetalert-dev.min.js"></script>
 <script src="https://cdn.bootcss.com/showdown/1.8.6/showdown.min.js"></script>
-<script src="https://cdn.bootcss.com/prism/9000.0.1/components/prism-actionscript.js"></script>
 <script>
     $(function () {
         $("[data-toggle='tooltip']").tooltip();
@@ -49,6 +48,16 @@
         'avatar': 'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=920097092,3819232665&fm=27&gp=0.jpg',
         'sex': '男',
     };
+    // 自动转换 Markdown
+    $('.markdown.markdown-auto').each(function() {
+        $this = $(this);
+        //创建实例
+        var converter = new showdown.Converter();
+        var html = converter.makeHtml($this.data('markdown'));
+        $this.html(html);
+        $this.slideDown(3000);
+    });
+
 </script>
 
 @stack('scripts')

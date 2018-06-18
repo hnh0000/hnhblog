@@ -18,4 +18,7 @@
 名称 | 描述
  ---|---
  [simplemde](https://simplemde.com/) | markdown编辑器
- [Prism](https://segmentfault.com/a/1190000009122617) | 代码语法高亮插件
+ [Prism](https://segmentfault.com/a/1190000009122617) | 代码高亮
+ [showdown](https://www.jianshu.com/p/747d6f8dddb0) | Markdown 解析
+ [fontawesome](https://fontawesome.com/) | 矢量图标
+ [sweetalert](http://mishengqiang.com/sweetalert/) | 漂亮的弹窗 

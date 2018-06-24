@@ -23,18 +23,33 @@ class Article extends Model
         });
     }
 
+    // 一对多获取文章评论
+    public function comments($kind='all')
+    {
+        $model = $this->hasMany(Comment::class);
+
+        // 只获取顶级评论
+        if ($kind=='p') {
+            $model->where('p_id',0);
+        }
+
+        // 只获取子评论
+        if ($kind=='c') {
+            $model->where('p_id','!=',0);
+        }
+
+        return $model;
+    }
+
+
     /**
-     * 当前登录用户是否已经点赞
+     * 当前登录用户是否已点赞
      *
      * @param bool $small
      * @return bool
      */
     public function isLike($small = false)
     {
-        if(!Auth::check()){
-            return false;
-        }
-
         if (!$small) {
             return $this->likes->contains('user_id', Auth::id());
         } else {
@@ -54,14 +69,9 @@ class Article extends Model
         return $this->belongsTo(Category::class);
     }
 
-    /**
-     * 获得此模型的所有评论
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\MorphToMany
-     */
+    // 多态关联获取文章的赞
     public function likes()
     {
         return $this->morphMany(Like::class, 'likeable');
     }
-
 }

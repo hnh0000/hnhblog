@@ -35,28 +35,43 @@
 <script>
     $(function () {
         $("[data-toggle='tooltip']").tooltip();
-    });
-    $.ajaxSetup({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-    });
-    // 用户基本信息
-    var user = {
-        'id': '1',
-        'name': '洪乃火',
-        'avatar': 'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=920097092,3819232665&fm=27&gp=0.jpg',
-        'sex': '男',
-    };
-    // 自动转换 Markdown
-    $('.markdown.markdown-auto').each(function() {
-        $this = $(this);
+
         //创建实例
         var converter = new showdown.Converter();
-        var html = converter.makeHtml($this.data('markdown'));
-        $this.html(html);
-        $this.slideDown(3000);
+
+        // 自动转换 Markdown
+        $('.markdown.markdown-auto').each(function() {
+            $this = $(this);
+            var html = converter.makeHtml($this.data('markdown') ? $this.data('markdown') : $this.html());
+            $this.html(html);
+            $this.show();
+        });
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
     });
+
+    // 用户基本信息
+    @auth()
+    var user = {
+        'id': '{{Auth::id()}}',
+        'name': '{{Auth::user()->name}}',
+        'avatar': '{{Auth::user()->avatar}}',
+        'sex': '{{Auth::user()->sex()}}',
+    };
+    @else
+    var user = {
+            'id': null,
+            'name': null,
+            'avatar': null,
+            'sex': null,
+        };
+    @endauth
+
+
 
 </script>
 

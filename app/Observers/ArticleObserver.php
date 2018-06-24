@@ -10,7 +10,6 @@
 namespace App\Observers;
 
 use App\Models\Article;
-use App\Plugs\Markdown;
 
 class  ArticleObserver
 {

@@ -19,6 +19,16 @@ class User extends Authenticatable
         'open_id', 'remember_token',
     ];
 
+    public function sex()
+    {
+        return $this->sex;
+    }
+
+    // 是否为作者
+    public function isAuthOf($modle)
+    {
+        return $modle->user_id === Auth::id();
+    }
 
     /**
      * 用户登录，如果用户不存在自动注册
@@ -40,6 +50,18 @@ class User extends Authenticatable
             $user = $this;
         }
         Auth::login($user,$remember);
+    }
+
+    // 一对多关联评论表
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+
+    // 一对多关联评论表,获取回复我的评论
+    public function rMyComments()
+    {
+        return $this->hasMany(Comment::class,'r_id');
     }
 
 }

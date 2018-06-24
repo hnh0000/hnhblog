@@ -19,8 +19,13 @@ class ArticleController extends Controller
      */
     public function show(Article $article)
     {
+        // 阅读量+1
         $article->increment('watch', '1');
-        return view('articles.show', compact('article'));
+
+        // 获取评论
+        $comments = $article->comments('p')->with('user','childs.user','childs.rUser')->get();
+
+        return view('articles.show', compact('article','comments'));
     }
     
     /**

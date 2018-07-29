@@ -226,17 +226,17 @@
                         }
                         var $html = '<div class="child_comment_content" style="overflow: hidden"\n' +
                             '                                                 id="'+ new_reply_id +'" data-id="'+ user.id +'"\n' +
-                            '                                                 data-name="'+ $data.name +'">\n' +
+                            '                                                 data-name="'+ user.name +'">\n' +
                             '                                                <div class="">\n' +
                             '                                                    <div class="pull-left">\n' +
-                            '                                                    <a href="" class="" >'+ $data.name +'</a> 回复 <a\n' +
+                            '                                                    <a href="" class="" >'+ user.name +'</a> 回复 <a\n' +
                             '                                                            href="">'+ r_name +'</a> : &nbsp;\n' +
                             '                                                    </div>\n' +
                             '                                                    <div class="markdown markdown-auto pull-left">'+ content +'</div>\n' +
                             '                                                </div>\n' +
                             '                                                <p class="">\n' +
                             '                                                        <span hidden class="pull-right delete delete_reply"\n' +
-                            '                                                              data-id="'+ $data.id +'" data-role="child"\n' +
+                            '                                                              data-id="'+ user.id +'" data-role="child"\n' +
                             '                                                              title="删除"><i\n' +
                             '                                                                    class="fa fa-times-circle"></i></span>\n' +
                             '                                                    <span hidden class="pull-right reply" title="回复"\n' +

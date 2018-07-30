@@ -1,4 +1,4 @@
-// 加上阴影
+// 底部加上阴影
 .shade-1 {
   box-shadow: 0 1px 2px 0 #E2E2E2;
 }
@@ -32,4 +32,24 @@
   -ms-user-select:none;/*IE10*/
   -khtml-user-select:none;/*早期浏览器*/
   user-select:none;
+}
+
+.box {
+  background-color: #fff;
+  padding: 10px;
+  margin: 0 0 20px 0;
+  -webkit-box-shadow: 0 0.2em 0 0 #ddd, 0 0 0 1px #ddd;
+  box-shadow: 0 0.2em 0 0 #ddd, 0 0 0 1px #ddd;
+}
+
+.padding-sm {
+  padding: 10px;
+}
+
+.padding-md {
+  padding: 15px;
+}
+
+.padding-lg {
+  padding: 30px;
 }

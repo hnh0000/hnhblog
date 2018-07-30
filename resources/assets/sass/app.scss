@@ -8,7 +8,6 @@
 // class
 @import "class";
 
-
 section, article {
   background: white;
 }
@@ -18,8 +17,8 @@ html {
   position: relative;
 }
 
-a:hover{
-  text-decoration:none;
+a:hover {
+  text-decoration: none;
 }
 
 body {
@@ -61,14 +60,17 @@ nav {
 .like {
   cursor: pointer;
 }
+
 .like.active {
   i {
     color: $support;
   }
 }
+
 .like.ban {
   cursor: wait;
 }
+
 // 点赞按钮 End
 
 // 页脚
@@ -193,14 +195,14 @@ footer {
       }
       .btn_row {
         position: relative;
-        .ele{
+        .ele {
           position: absolute;
           bottom: 0px;
           margin-left: 30px;
           color: #a9a7a7;
           font-size: 15px;
         }
-        .ele:first-child{
+        .ele:first-child {
           margin-left: 5px;
           font-size: 17px;
         }
@@ -229,6 +231,27 @@ footer {
   }
   // 评论区 End
 
+}
+
+// 个人中心
+#app.users-show-page {
+  .media {
+    text-align: center;
+  }
+  .media img {
+    width: 120px;
+    height: 120px;
+    border-radius: 111px 111px;
+    padding: 3px;
+    border: 1px solid #dddddd;
+  }
+  .media span {
+    color: #000000;
+  }
+  .media li {
+    color: #000000;
+    padding-top: 15px;
+  }
 }
 
 

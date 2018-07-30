@@ -8919,6 +8919,26 @@ button.close {
   user-select: none;
 }
 
+.box {
+  background-color: #fff;
+  padding: 10px;
+  margin: 0 0 20px 0;
+  -webkit-box-shadow: 0 0.2em 0 0 #ddd, 0 0 0 1px #ddd;
+  box-shadow: 0 0.2em 0 0 #ddd, 0 0 0 1px #ddd;
+}
+
+.padding-sm {
+  padding: 10px;
+}
+
+.padding-md {
+  padding: 15px;
+}
+
+.padding-lg {
+  padding: 30px;
+}
+
 section,
 article {
   background: white;
@@ -9135,5 +9155,26 @@ footer .page-header {
   min-height: 55px;
   padding: 10px;
   overflow: hidden;
+}
+
+#app.users-show-page .media {
+  text-align: center;
+}
+
+#app.users-show-page .media img {
+  width: 120px;
+  height: 120px;
+  border-radius: 111px 111px;
+  padding: 3px;
+  border: 1px solid #dddddd;
+}
+
+#app.users-show-page .media span {
+  color: #000000;
+}
+
+#app.users-show-page .media li {
+  color: #000000;
+  padding-top: 15px;
 }
 

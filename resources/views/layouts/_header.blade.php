@@ -32,7 +32,7 @@
             {{--右边的导航条--}}
             <ul class="nav navbar-nav navbar-right">
                 @auth
-                    <li class="dropdown">
+                    <li class="dropdown user_info">
                         <a href="#" class="dropdown-toggle" style="" data-toggle="dropdown" role="button"
                            aria-expanded="false" aria-haspopup="true" v-pre>
                             <img src="{{Auth::user()->avatar}}"
@@ -129,5 +129,11 @@
             var A = window.open("{{route('auth.login')}}", "TencentLogin",
                 "width=450,height=320,menubar=0,scrollbars=1,resizable=1,status=1,titlebar=0,toolbar=0,location=1");
         }
+
+        $(".dropdown.user_info").hover(function () {
+            $(this).addClass("open");
+        }, function() {
+            $(this).removeClass("open");
+        });
     </script>
 @endpush

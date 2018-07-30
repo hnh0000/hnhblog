@@ -70,9 +70,6 @@
             'sex': null,
         };
     @endauth
-
-
-
 </script>
 
 @stack('scripts')

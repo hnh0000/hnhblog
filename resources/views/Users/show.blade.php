@@ -31,21 +31,21 @@
                 <div class="panel-body">
                     <ul class="list-group">
                         <li class="list-group-item">
-                            <a href="">看起来还不错的话题</a>
+                            <a class="rm-link-color" href="">看起来还不错的话题</a>
                         </li><li class="list-group-item">
-                            <a href="">看起来还不错的话题</a>
+                            <a class="rm-link-color" href="">看起来还不错的话题</a>
                         </li><li class="list-group-item">
-                            <a href="">看起来还不错的话题</a>
+                            <a class="rm-link-color" href="">看起来还不错的话题</a>
                         </li><li class="list-group-item">
-                            <a href="">看起来还不错的话题</a>
+                            <a class="rm-link-color" href="">看起来还不错的话题</a>
                         </li><li class="list-group-item">
-                            <a href="">看起来还不错的话题</a>
+                            <a class="rm-link-color" href="">看起来还不错的话题</a>
                         </li><li class="list-group-item">
-                            <a href="">看起来还不错的话题</a>
+                            <a class="rm-link-color" href="">看起来还不错的话题</a>
                         </li><li class="list-group-item">
-                            <a href="">看起来还不错的话题</a>
+                            <a class="rm-link-color" href="">看起来还不错的话题</a>
                         </li><li class="list-group-item">
-                            <a href="">看起来还不错的话题</a>
+                            <a class="rm-link-color" href="">看起来还不错的话题</a>
                         </li>
                     </ul>
                 </div>
@@ -59,21 +59,21 @@
                 <div class="panel-body">
                     <ul class="list-group">
                         <li class="list-group-item">
-                            <a href="">看起来还不错的话题</a>
+                            <a class="rm-link-color" href="">看起来还不错的话题</a>
                         </li><li class="list-group-item">
-                            <a href="">看起来还不错的话题</a>
+                            <a class="rm-link-color" href="">看起来还不错的话题</a>
                         </li><li class="list-group-item">
-                            <a href="">看起来还不错的话题</a>
+                            <a class="rm-link-color" href="">看起来还不错的话题</a>
                         </li><li class="list-group-item">
-                            <a href="">看起来还不错的话题</a>
+                            <a class="rm-link-color" href="">看起来还不错的话题</a>
                         </li><li class="list-group-item">
-                            <a href="">看起来还不错的话题</a>
+                            <a class="rm-link-color" href="">看起来还不错的话题</a>
                         </li><li class="list-group-item">
-                            <a href="">看起来还不错的话题</a>
+                            <a class="rm-link-color" href="">看起来还不错的话题</a>
                         </li><li class="list-group-item">
-                            <a href="">看起来还不错的话题</a>
+                            <a class="rm-link-color" href="">看起来还不错的话题</a>
                         </li><li class="list-group-item">
-                            <a href="">看起来还不错的话题</a>
+                            <a class="rm-link-color" href="">看起来还不错的话题</a>
                         </li>
                     </ul>
                 </div>

@@ -17,13 +17,34 @@ html {
   position: relative;
 }
 
-a:hover {
-  text-decoration: none;
-}
-
 body {
   font-family: Hiragino Sans GB, "Hiragino Sans GB", Helvetica, "Microsoft YaHei", Arial, sans-serif;
   margin-bottom: 330px;
+}
+
+.panel-default {
+  border-color: #dde2e8;
+}
+
+.list-group .list-group-item {
+  border: none;
+  border-bottom: 1px solid #f2f2f2;
+  margin-bottom: 0;
+}
+
+a {
+  &.rm-link-color {
+    color: #606060;
+  }
+  &:hover {
+    color: #d6514d;
+    transition: color .15s ease 0s;
+  }
+}
+
+
+.rm-link-color{
+  color: #606060;
 }
 
 // 文章段落块

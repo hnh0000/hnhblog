@@ -1,0 +1,133 @@
+// 文章详情页
+#app.articles-show-page {
+  // 文章内容
+  article {
+    .belong {
+      -moz-user-select: none; /*火狐*/
+      -webkit-user-select: none; /*webkit浏览器*/
+      -ms-user-select: none; /*IE10*/
+      -khtml-user-select: none; /*早期浏览器*/
+      user-select: none;
+    }
+  }
+
+  // 评论区 Begin
+  .comments {
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    .comment:hover {
+      .delete {
+        display: inline;
+      }
+    }
+
+    .comment_content {
+      padding-left: 100px;
+      .user_name {
+        font-size: 17px;
+        font-weight: 700;
+        color: #000;
+        margin-bottom: 0px;
+      }
+      // 评论信息，如楼号，发表时间，点赞，回复，删除
+      .release_time {
+        font-size: 12px;
+        margin-bottom: 1px;
+        .reply, .like, .delete {
+          cursor: pointer;
+          margin-left: 10px;
+        }
+      }
+      .com {
+        overflow: hidden;
+        font-size: 15px;
+      }
+    }
+    //子评论 Begin
+    .child_comment {
+      padding: 25px;
+      margin-left: 90px;
+      border-radius: 5px 5px;
+      background: #f3f3f3;
+      .child_comment_content {
+        .delete, .reply {
+          font-size: 12px;
+          cursor: pointer;
+          margin-left: 10px;
+        }
+      }
+      .child_comment_content:hover {
+        .delete, .reply {
+          display: inline;
+        }
+      }
+    }
+    //子评论 End
+
+    // 评论框 Begin
+    .input {
+      margin-top: 20px;
+      textarea.form-control {
+        overflow: auto;
+      }
+      .btn_row {
+        position: relative;
+        .ele {
+          position: absolute;
+          bottom: 0px;
+          margin-left: 30px;
+          color: #a9a7a7;
+          font-size: 15px;
+        }
+        .ele:first-child {
+          margin-left: 5px;
+          font-size: 17px;
+        }
+        .ele.md {
+          margin-left: 60px;
+        }
+        .ele:hover {
+          color: $support;
+        }
+      }
+      .control_show {
+        border: 1px dashed rgb(204, 204, 204);
+        background: rgb(255, 255, 255);
+        border-radius: 6px;
+        box-shadow: none;
+        margin-top: 20px;
+        margin-bottom: 6px;
+        line-height: 1.6;
+        min-height: 55px;
+        padding: 10px;
+        overflow: hidden;
+      }
+    }
+    // 评论框 End
+
+  }
+  // 评论区 End
+
+}
+
+// 个人中心
+#app.users-show-page,.users-article-page {
+  .media {
+    text-align: center;
+  }
+  .media img {
+    width: 120px;
+    height: 120px;
+    border-radius: 111px 111px;
+    padding: 3px;
+    border: 1px solid #dddddd;
+  }
+  .media span {
+    color: #000000;
+  }
+  .media li {
+    color: #000000;
+    padding-top: 15px;
+  }
+}

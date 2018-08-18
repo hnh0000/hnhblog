@@ -49,7 +49,7 @@
                             @endisset
 
                             <li>
-                                <a href="">
+                                <a href="{{route('users.show', Auth::id())}}">
                                     <i class="glyphicon glyphicon-user"></i>&nbsp;
                                     个人中心
                                 </a>

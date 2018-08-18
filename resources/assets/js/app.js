@@ -42,6 +42,11 @@ window.must_loign = function (callback, param) {
 }
 
 
+/**
+ * ajax请求错误处理
+ *
+ * @param response
+ */
 window.ajax_error = function (response) {
     swal({
             title: "出了点问题.",

@@ -6,8 +6,8 @@
  * Email: 1123416584@qq.com
  * Blog: blog.hnh117.com
  */
-
-
+use Illuminate\Support\Str;
+use Illuminate\Support\HtmlString;
 /**
  * 以-切割路由昵称，方便设置不同页面的样式
  * @return mixed
@@ -60,4 +60,51 @@ function is_mobile()
     if($is_mac){
         return  false;
     }
+}
+
+
+//laravel mix 方法简单修改
+function lmix($path, $manifestDirectory = '')
+{
+    static $manifests = [];
+
+    if (! Str::startsWith($path, '/')) {
+        $path = "/{$path}";
+    }
+
+    if ($manifestDirectory && ! Str::startsWith($manifestDirectory, '/')) {
+        $manifestDirectory = "/{$manifestDirectory}";
+    }
+
+    if (file_exists(public_path($manifestDirectory.'/hot'))) {
+        $url = file_get_contents(public_path($manifestDirectory.'/hot'));
+
+        if (Str::startsWith($url, ['http://', 'https://'])) {
+            return new HtmlString(Str::after($url, ':').$path);
+        }
+
+        return new HtmlString("//localhost:8080{$path}");
+    }
+
+    $manifestPath = public_path($manifestDirectory.'/mix-manifest.json');
+
+    if (! isset($manifests[$manifestPath])) {
+        if (! file_exists($manifestPath)) {
+            throw new Exception('The Mix manifest does not exist.');
+        }
+
+        $manifests[$manifestPath] = json_decode(file_get_contents($manifestPath), true);
+    }
+
+    $manifest = $manifests[$manifestPath];
+
+    $path = str_replace($manifestDirectory,'', $path);
+    if (! isset($manifest[$path])) {
+        report(new Exception("Unable to locate Mix file: {$path}."));
+        if (! app('config')->get('app.debug')) {
+            return $path;
+        }
+    }
+
+    return new HtmlString($manifestDirectory.$manifest[$path]);
 }

@@ -23,6 +23,12 @@ class Article extends Model
         });
     }
 
+    // 获取链接
+    public function link()
+    {
+        return route('articles.show',$this->id);
+    }
+
     // 一对多获取文章评论
     public function comments($kind='all')
     {

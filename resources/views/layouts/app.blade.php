@@ -8,7 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title', setting('title'))</title>
     <!-- Styles -->
-    <link href="{{ mix('assets/css/app.css') }}" rel="stylesheet">
+    <link href="{{ lmix('assets/css/app.css', 'assets') }}" rel="stylesheet">
     {{--cdn--}}
     <link href="https://cdn.bootcss.com/sweetalert/1.1.3/sweetalert.min.css" rel="stylesheet">
     <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
@@ -29,7 +29,7 @@
 </div>
 
 <!-- Scripts -->
-<script src="{{ mix('assets/js/app.js') }}"></script>
+<script src="{{ lmix('assets/js/app.js', 'assets') }}"></script>
 <script src="https://cdn.bootcss.com/sweetalert/1.1.3/sweetalert-dev.min.js"></script>
 <script src="https://cdn.bootcss.com/showdown/1.8.6/showdown.min.js"></script>
 <script>

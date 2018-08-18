@@ -11,6 +11,9 @@ let mix = require('laravel-mix');
  |
  */
 
+Config.publicPath = 'public/assets';
+
+
 mix.js('resources/assets/js/app.js', 'public/assets/js')
     .js('resources/assets/js/paste-upload-image.js', 'public/assets/js')
     .sass('resources/assets/sass/app.scss', 'public/assets/css')

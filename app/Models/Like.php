@@ -11,8 +11,6 @@ class Like extends Model
 
     /**
      * 获得拥有此点赞的模型
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\MorphTo
      */
     public function likeable()
     {

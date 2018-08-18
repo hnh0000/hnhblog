@@ -21,7 +21,9 @@ Route::resource('tags', 'TagController')->only('show');
 Route::resource('comments', 'CommentController')->except(['show', 'edit', 'create']);
 
 // 个人资料
-Route::resource('users', 'UserController')->except(['delete', 'store', 'index']);
+Route::resource('users', 'UserController')->only('show');
+Route::get('users/{user}/articles', 'UserController@articles')->name('users.article');
+Route::get('users/{user}/comments', 'UserController@comments');
 
 // Auth登录
 Route::get('/login/{type?}', 'Auth\AuthController@login')->name('auth.login');

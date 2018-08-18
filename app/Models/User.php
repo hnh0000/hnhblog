@@ -21,7 +21,8 @@ class User extends Authenticatable
 
     public function sex()
     {
-        return $this->sex;
+        $sex = ['_0' => '男', '_1' => '女', '_2' => '未知'];
+        return $sex[$this->sex];
     }
 
     // 是否为作者
@@ -64,4 +65,16 @@ class User extends Authenticatable
         return $this->hasMany(Comment::class,'r_id');
     }
 
+    // 获得点赞过得话题
+    public function likeArticles($num = 0)
+    {
+        $article_ids = $this->hasMany(Like::class)->where('likeable_type','App\Models\Article')->pluck('likeable_id');
+        $articles = Article::whereIn('id', $article_ids);
+
+        if ($num > 0) {
+            return $articles->simplePaginate(15);
+        }
+        return $articles->get();
+
+    }
 }

@@ -10,6 +10,13 @@ class Comment extends Model
     // 不能被填充的字段
     protected $guarded = [];
 
+
+    // 绝对链接
+    public function link()
+    {
+        return route('articles.show', $this->article_id);
+    }
+
     // 多对一关联文章表, 获取评论文章
     public function article()
     {

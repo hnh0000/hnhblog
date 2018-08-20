@@ -37,5 +37,15 @@
         function goTo(str) {
             location.href = location.href+str;
         }
+
+        function goToUserContent() {
+            var url = location.href;
+            var info = url.split('/');
+            info.pop();
+            url = info.join('/');
+            location.href = url;
+        }
+
+
     </script>
 @endpush

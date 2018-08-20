@@ -25,11 +25,6 @@ body {
   margin-bottom: 330px;
 }
 
-.list-group .list-group-item {
-  border: none;
-  border-bottom: 1px solid #f2f2f2;
-  margin-bottom: 0;
-}
 
 a {
   &.rm-link-color {
@@ -41,9 +36,6 @@ a {
   }
 }
 
-.rm-link-color{
-  color: #606060;
-}
 
 // 文章段落块
 article {
@@ -140,11 +132,20 @@ footer {
 
 //////// bootstrap 覆盖 Begin
 .panel-default {
-  border-color: #dde2e8;
+  border: 1px solid #dde2e8;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
 }
 
 ol.breadcrumb {
   background: white;
+}
+
+.list-group .list-group-item {
+  border: none;
+  border-bottom: 1px solid #f2f2f2;
+  margin-bottom: 0;
 }
 //////// bootstrap 覆盖 End
 

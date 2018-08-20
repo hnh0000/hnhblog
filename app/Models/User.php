@@ -66,15 +66,11 @@ class User extends Authenticatable
     }
 
     // 获得点赞过得话题
-    public function likeArticles($num = 0)
+    public function likeArticles()
     {
         $article_ids = $this->hasMany(Like::class)->where('likeable_type','App\Models\Article')->pluck('likeable_id');
         $articles = Article::whereIn('id', $article_ids);
 
-        if ($num > 0) {
-            return $articles->simplePaginate(15);
-        }
-        return $articles->get();
-
+        return $articles;
     }
 }

@@ -55,12 +55,12 @@
                                 </a>
                             </li>
 
-                            <li>
-                                <a href="">
-                                    <i class="glyphicon glyphicon-edit"></i>&nbsp;
-                                    编辑资料
-                                </a>
-                            </li>
+                            {{--<li>--}}
+                                {{--<a href="">--}}
+                                    {{--<i class="glyphicon glyphicon-edit"></i>&nbsp;--}}
+                                    {{--编辑资料--}}
+                                {{--</a>--}}
+                            {{--</li>--}}
 
                             <li>
                                 <a href="javascript:;"

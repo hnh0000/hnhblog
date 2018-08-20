@@ -14,9 +14,11 @@
                             <a class="rm-link-color" href="{{$article->link()}}">{{$article->content}}</a>
                         </li>
                     @endforeach
+                    @if ($articles->hasMorePages())
                     <li class="list-group-item" style="border: none; background: #fcfcfc; margin-top: 8px; overflow: hidden">
                         <a href="javascript:;" onclick="goTo('/articles')" class="btn btn-default pull-right">所有文章</a>
                     </li>
+                    @endif
                 </ul>
             </div>
         </div>
@@ -33,9 +35,11 @@
                             <a class="rm-link-color" href="{{$rMyComment->link()}}">{{$rMyComment->content}}</a>
                         </li>
                     @endforeach
+                    @if ($rMyComments->hasMorePages())
                     <li class="list-group-item" style="border: none; background: #fcfcfc; margin-top: 8px;overflow: hidden;">
                         <a href="javascript:;" onclick="goTo('/comments')" class="btn btn-default pull-right">所有评论</a>
                     </li>
+                    @endif
                 </ul>
             </div>
         </div>

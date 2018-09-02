@@ -37,7 +37,7 @@
             /
             阅读数量:{{$article->watch}}
         </strong>
-        <p class="pull-right like {{active_class($article->isLike(true))}}" onclick="like($(this))" data-toggle="tooltip"
+        <p class="pull-right like {{active_class($article->isLike(true))}}" onclick="like($(this), true)" data-toggle="tooltip"
            data-placement="top"
            title="">
             <i class="fa fa-thumbs-o-up faa-bounce"></i> <span>{{$article->count_like}}</span>
@@ -48,14 +48,19 @@
 
 @push('scripts')
     <script>
-        function like(jqthis) {
+        function like(jqthis, isArticle, commentId) {
             must_loign(function (jqthis) {
                 if (jqthis.hasClass('ban')) {
                     return false;
                 }
                 $par = jqthis.hasClass('active') ? {'_method': 'DELETE'} : {};// 判断是点赞还是取消点赞
                 $msg = jqthis.hasClass('active') ? '点赞' : '取消点赞';
-                $url = jqthis.hasClass('active') ? '{{route('articles.dislike',$article->id)}}' : '{{route('articles.like',$article->id)}}'
+                if (isArticle) {
+                    $url = jqthis.hasClass('active') ? '{{route('articles.dislike',$article->id)}}' : '{{route('articles.like',$article->id)}}'
+                }else{
+                    $url = jqthis.hasClass('active') ? '{{route('comments.dislike',8888)}}' : '{{route('comments.like',8888)}}'
+                    $url = $url.replace(8888, commentId);
+                }
 
                 jqthis.attr('title', '操作正在执行中...');
                 jqthis.addClass('ban');
@@ -67,6 +72,7 @@
                 $.post($url, $par, function (response) {
                     jqthis.toggleClass('active');
                     jqthis.find('span').text(response.count);
+                    jqthis.find('em').text(response.count);
                     jqthis.attr('title', $msg);
                     jqthis.removeClass('ban');
                 }, 'json');

@@ -45,9 +45,9 @@
                                         <span class="pull-right reply" title="回复">
                                         <i class="fa fa-reply"></i>
                                     </span>
-                                        <span class="pull-right like unselect like" onclick="like($(this))" title="点赞">
+                                        <span class="pull-right like unselect like {{active_class($comment->isLike())}}" onclick="like($(this), false, {{$comment->id}})" title="点赞">
                                         <i class="fa fa-thumbs-o-up faa-bounce"></i>
-                                        <em>2</em>
+                                        <em>{{$comment->count_like}}</em>
                                     </span>
                                     </p>
                                     {{--点赞，回复，删除 End--}}
@@ -198,9 +198,9 @@
                             '                                        <span class="pull-right reply" title="回复">\n' +
                             '                                        <i class="fa fa-reply"></i>\n' +
                             '                                    </span>\n' +
-                            '                                        <span class="pull-right like unselect like" onclick="like($(this))" title="点赞">\n' +
+                            '                                        <span class="pull-right like unselect like" onclick="like($(this), false,'+ $data.id +')" title="点赞">\n' +
                             '                                        <i class="fa fa-thumbs-o-up faa-bounce"></i>\n' +
-                            '                                        <em>2</em>\n' +
+                            '                                        <em>0</em>\n' +
                             '                                    </span>\n' +
                             '                                    </p>\n' +
                             '                                    {{--点赞，回复，删除 End--}}\n' +

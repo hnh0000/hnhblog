@@ -10,15 +10,21 @@ class CommentPolicy
 {
     use HandlesAuthorization;
 
-    /**
-     * Determine whether the user can delete the comment.
-     *
-     * @param  \App\Models\User $user
-     * @param  \App\Models\Comment $comment
-     * @return mixed
-     */
+    // 删除评论
     public function delete(User $user, Comment $comment)
     {
         return $user->isAuthOf($comment);
+    }
+
+    // 点赞
+    public function like(User $user, Comment $comment)
+    {
+        return !$comment->isLike(true) && $comment->pid == 0;
+    }
+
+    // 取消赞
+    public function dislike(User $user, Comment $comment)
+    {
+        return $comment->isLike(true) && $comment->pid == 0;
     }
 }

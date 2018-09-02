@@ -19,6 +19,8 @@ Route::resource('tags', 'TagController')->only('show');
 
 // 评论
 Route::resource('comments', 'CommentController')->except(['show', 'edit', 'create']);
+Route::post('comments/{comment}/like', 'CommentController@like')->name('comments.like');// 点赞
+Route::delete('comments/{comment}/dislike', 'CommentController@dislike')->name('comments.dislike');// 取消赞
 
 // 个人资料
 Route::resource('users', 'UserController')->only('show');

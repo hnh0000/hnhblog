@@ -47,22 +47,6 @@ class Article extends Model
         return $model;
     }
 
-
-    /**
-     * 当前登录用户是否已点赞
-     *
-     * @param bool $small
-     * @return bool
-     */
-    public function isLike($small = false)
-    {
-        if (!$small) {
-            return $this->likes->contains('user_id', Auth::id());
-        } else {
-            return $this->likes()->where('user_id',Auth::id())->first() ? true : false;
-        }
-    }
-
     // 多对多关联 标签表
     public function tags()
     {
@@ -73,6 +57,16 @@ class Article extends Model
     public function category()
     {
         return $this->belongsTo(Category::class);
+    }
+
+    // 当前模型用户是否已点赞
+    public function isLike($small = false)
+    {
+        if (false === $small) {
+            return $this->likes->contains('user_id', Auth::id());
+        } else {
+            return $this->likes()->where('user_id',Auth::id())->first() ? true : false;
+        }
     }
 
     // 多态关联获取文章的赞

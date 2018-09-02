@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 
 class Comment extends Model
 {
@@ -10,6 +11,21 @@ class Comment extends Model
     // 不能被填充的字段
     protected $guarded = [];
 
+    // 当前登录用户
+    public function isLike($small = false)
+    {
+        if (false === $small) {
+            return $this->likes->contains('user_id', Auth::id());
+        } else {
+            return $this->likes()->where('user_id',Auth::id())->first() ? true : false;
+        }
+    }
+
+    // 多态关联获取评论的赞
+    public function likes()
+    {
+        return $this->morphMany(Like::class, 'likeable');
+    }
 
     // 绝对链接
     public function link()

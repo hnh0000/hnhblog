@@ -17,7 +17,7 @@
                     <ul class="list-group">
                         @foreach($comments as $article)
                             <li class="list-group-item">
-                                <a class="rm-link-color" href="{{$rMyComment->link()}}">{{$article->content}}</a>
+                                <a class="rm-link-color" href="{{$article->link()}}">{{$article->content}}</a>
                             </li>
                         @endforeach
                     </ul>

@@ -101,16 +101,16 @@
             <div class="col-xs-12 col-md-12 col-lg-12 b-login-row">
                 <ul class="row" style="margin-top: 20px;">
                     <li style="margin: 5px 0px;"  class="col-xs-6 col-md-4 col-lg-4 b-login-img">
-                        <a href="javascript:;" onclick="toLogin()"><img src="{{asset('/images/qq-login.png')}}"
+                        <a href="javascript:;" onclick="toLogin()"><img src="{{asset('/assets/images/qq-login.png')}}"
                                                                         class=""
                                                                         alt="QQ登录"></a>
                     </li>
                     <li style="margin: 5px 0px;" class="col-xs-6 col-md-4 col-lg-4 b-login-img">
-                        <a href="javascript:;"><img src="{{asset('images/sina-login.png')}}" class=""
+                        <a href="javascript:;"><img src="{{asset('/assets/images/sina-login.png')}}" class=""
                                                     data-toggle="tooltip" alt="微博登录" title="正在申请接口中,暂时无法登录."></a>
                     </li>
                     <li style="margin: 5px 0px;" class="col-xs-6 col-md-4 col-lg-4 b-login-img">
-                        <a href="javascript:;"><img src="{{asset('images/github-login.jpg')}}" class=""
+                        <a href="javascript:;"><img src="{{asset('/assets/images/github-login.jpg')}}" class=""
                                                     data-toggle="tooltip" alt="github登录" title="正在申请接口中,暂时无法登录."></a>
                     </li>
                 </ul>

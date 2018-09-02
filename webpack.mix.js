@@ -11,12 +11,12 @@ let mix = require('laravel-mix');
  |
  */
 
-Config.publicPath = 'public/assets';
+mix.setPublicPath('public');
+
 
 
 mix.js('resources/assets/js/app.js', 'public/assets/js')
     .js('resources/assets/js/paste-upload-image.js', 'public/assets/js')
     .sass('resources/assets/sass/app.scss', 'public/assets/css')
     .sass('resources/assets/sass/markdown.scss', 'public/assets/css')
-    .sass('resources/assets/sass/resume.scss', 'public/assets/css')
-    .version();
+    .sass('resources/assets/sass/resume.scss', 'public/assets/css');

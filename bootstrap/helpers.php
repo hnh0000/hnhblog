@@ -17,6 +17,35 @@ function route_class()
     return str_replace('.', '-', Route::currentRouteName());
 }
 
+
+/**
+ * 是否为生产环境
+ *
+ * @return bool
+ */
+function is_production(){
+    return strtolower(config('app.env')) === 'production';
+}
+
+/**
+ * 是否为线上测试环境
+ *
+ * @return bool
+ */
+function is_staging(){
+    return strtolower(config('app.env')) === 'staging';
+}
+
+/**
+ * 是否为开发环境
+ *
+ * @return bool
+ */
+function is_local(){
+    return strtolower(config('app.env')) === 'local';
+}
+
+
 /**
  * 获取配置信息
  * @param string $key

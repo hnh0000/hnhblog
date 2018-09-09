@@ -17,7 +17,6 @@ function route_class()
     return str_replace('.', '-', Route::currentRouteName());
 }
 
-
 /**
  * 获取配置信息
  * @param string $key
@@ -33,7 +32,6 @@ function setting(string $key, $default = null)
     $data = json_decode(SETTINGS,true);
     return isset($data[$key]) ? $data[$key] : $default;
 }
-
 
 // 判断是否为手机端
 function is_mobile()

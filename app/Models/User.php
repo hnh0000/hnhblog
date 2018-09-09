@@ -19,6 +19,21 @@ class User extends Authenticatable
         'open_id', 'remember_token',
     ];
 
+    /**
+     * 获取用户个人中心链接
+     *
+     * @return string
+     */
+    public function link()
+    {
+        return route('users.show', $this->id);
+    }
+
+    /**
+     * 获取性别中文形式
+     *
+     * @return mixed
+     */
     public function sex()
     {
         $sex = ['_0' => '男', '_1' => '女', '_2' => '未知'];

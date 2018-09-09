@@ -942,6 +942,7 @@ window.is_login = function () {
 };
 
 /**
+ * 是否登录，已登录的话执行回调
  *
  * @param callback 登录成功后的回调函数
  */

@@ -8971,6 +8971,10 @@ a:hover {
   transition: color .15s ease 0s;
 }
 
+#side ul li.active a {
+  color: #d6514d;
+}
+
 article {
   overflow: hidden;
   padding: 10px;
@@ -9002,7 +9006,7 @@ nav .container .navbar-right .dropdown ul li a {
 }
 
 .like.active i {
-  color: #ae155b;
+  color: #d6514d;
 }
 
 .like.ban {

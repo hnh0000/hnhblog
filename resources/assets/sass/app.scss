@@ -8,7 +8,8 @@
 // class
 @import "class";
 
-
+// 主题颜色
+$subject-color2: #d6514d;
 
 //////// 复选通用样式 Begin
 section, article {
@@ -31,11 +32,21 @@ a {
     color: #606060;
   }
   &:hover {
-    color: #d6514d;
+    color: $subject-color2;
     transition: color .15s ease 0s;
   }
 }
 
+// 侧边栏
+#side{
+  ul {
+    li.active {
+      a{
+        color: $subject-color2;
+      }
+    }
+  }
+}
 
 // 文章段落块
 article {
@@ -72,7 +83,7 @@ nav {
   cursor: pointer;
   &.active {
     i {
-      color: $support;
+      color: $subject-color2;
     }
   }
   &.ban {

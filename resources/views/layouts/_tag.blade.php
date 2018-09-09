@@ -1,14 +1,14 @@
-<aside class="col-md-4 hidden-sm hidden-xs shade-1" style="padding: 0;">
-    <section class="col-md-12">
-        <h4>热门标签</h4>
-        <ul class="list-inline">
+<section class="col-md-12">
+    <h4>热门标签</h4>
+    <ul class="list-inline">
 
-            @foreach($tags as $tag)
-                <li class="">
-                    <a href="{{ route('tags.show', $tag->id) }}">{{ $tag->name }} <small>({{ $tag->articles_count }})</small></a>
-                </li>
-            @endforeach
+        @foreach($tags as $tag)
+            <li class="{{ active_class(if_route_param('tag',$tag->id)) }}">
+                <a  href="{{ route('tags.show', $tag->id) }}">{{ $tag->name }}
+                    <small>({{ $tag->articles_count }})</small>
+                </a>
+            </li>
+        @endforeach
 
-        </ul>
-    </section>
-</aside>
+    </ul>
+</section>

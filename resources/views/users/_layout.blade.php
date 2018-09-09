@@ -10,8 +10,8 @@
             <div class="box">
                 <div class="padding-sm">
                     <div class="media">
-                        <a href="">
-                            <img data-toggle="tooltip" data-placement="top" title="修改头像" class="avatar"
+                        <a href="javascript:;">
+                            <img data-toggle="tooltip" data-placement="top" title="" class="avatar"
                                  src="{{$user->avatar}}" alt="">
                         </a>
                     </div>

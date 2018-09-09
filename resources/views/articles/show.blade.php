@@ -27,7 +27,7 @@
                                 </div>
                                 <div class="comment_content">
                                     <p class="user_name">
-                                        <a href="" style="color: #555555;">{{$comment->user->name}}</a>
+                                        <a href="{{$comment->user->link()}}" style="color: #555555;">{{$comment->user->name}}</a>
                                     </p>
                                     {{--点赞，回复，删除 Begin--}}
                                     <p class="release_time text-muted">
@@ -64,8 +64,8 @@
                                                  data-name="{{$child->user->name}}">
                                                 <div class="">
                                                     <div class="pull-left">
-                                                    <a href="" class="" >{{$child->user->name}}</a> 回复 <a
-                                                            href="">{{$child->rUser->name}}</a> : &nbsp;
+                                                    <a href="{{$child->user->link()}}" class="" >{{$child->user->name}}</a> 回复 <a
+                                                            href="{{$child->rUser->link()}}">{{$child->rUser->name}}</a> : &nbsp;
                                                     </div>
                                                     <div class="markdown markdown-auto pull-left">{{$child->content}}</div>
                                                 </div>
@@ -184,7 +184,7 @@
                             '                                </div>\n' +
                             '                                <div class="comment_content">\n' +
                             '                                    <p class="user_name">\n' +
-                            '                                        <a href="" style="color: #555555;">' + user.name + '</a>\n' +
+                            '                                        <a href="{{Auth::user()?Auth::user()->link():''}}" style="color: #555555;">' + user.name + '</a>\n' +
                             '                                    </p>\n' +
                             '                                    {{--点赞，回复，删除 Begin--}}\n' +
                             '                                    <p class="release_time text-muted">\n' +
@@ -229,8 +229,8 @@
                             '                                                 data-name="'+ user.name +'">\n' +
                             '                                                <div class="">\n' +
                             '                                                    <div class="pull-left">\n' +
-                            '                                                    <a href="" class="" >'+ user.name +'</a> 回复 <a\n' +
-                            '                                                            href="">'+ r_name +'</a> : &nbsp;\n' +
+                            '                                                    <a href="javascript:;" class="" >'+ user.name +'</a> 回复 <a\n' +
+                            '                                                            href="javascript:;">'+ r_name +'</a> : &nbsp;\n' +
                             '                                                    </div>\n' +
                             '                                                    <div class="markdown markdown-auto pull-left">'+ content +'</div>\n' +
                             '                                                </div>\n' +
